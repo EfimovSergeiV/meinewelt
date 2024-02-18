@@ -11,7 +11,7 @@
       <div class="flex gap-4">
         <nuxt-link class="uppercase font-semibold italic md:text-xl" to="/">Главная</nuxt-link>
         <nuxt-link class="uppercase font-semibold italic md:text-xl" to="/">Разработка</nuxt-link>
-        <nuxt-link class="uppercase font-semibold italic md:text-xl" to="/about">Проект</nuxt-link>        
+        <nuxt-link class="uppercase font-semibold italic md:text-xl" to="/about">О Проекте</nuxt-link>        
       </div>
 
       <div class="">
