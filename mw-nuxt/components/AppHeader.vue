@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-700 px-2 rounded-b-2xl">
+  <div class="bg-gray-700 px-2 rounded-b-2xl ">
     <div class="flex items-center justify-between gap-2">
       
       <div class="">
