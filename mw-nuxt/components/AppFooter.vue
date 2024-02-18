@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-gray-700 px-2 rounded-t-2xl">
+  <div class="bg-gray-700 px-2 rounded-t-2xl  border-t border-l border-r border-gray-500">
     <div class="flex items-center justify-between gap-2">
       
       <div class="">
-        <img src="/mw-logo.webp" class="w-[220px]" />
+        <img src="/mw-logo.webp" class="w-[120px] md:w-[220px]" />
       </div>
 
       <div class="">
