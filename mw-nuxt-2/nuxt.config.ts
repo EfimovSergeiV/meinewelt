@@ -9,11 +9,16 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/icon',
     '@nuxt/image',
-    '@nuxt/scripts'
+    '@nuxt/scripts',
+    '@vite-pwa/nuxt',
   ],
   css: [
     '~/assets/css/tailwind.css',
     '~/assets/css/main.css',
     // '@mdi/font/css/materialdesignicons.min.css',
   ],
+
+  pwa: {
+    /* PWA options */
+  },
 })
