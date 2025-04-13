@@ -12,7 +12,17 @@ const { $pwa } = useNuxtApp()
 
 <template>
   <div class="">
-    <!-- <NuxtPwaAssets /> -->
+    
+    <div class="flex gap-4">
+      <div class="">
+        <NuxtLink to="/" class="text-lg text-red-500">Home</NuxtLink>
+      </div>
+      <div class="">
+        <NuxtLink to="/about" class="text-lg text-red-500">About</NuxtLink>
+      </div>
+
+    </div>
+
     <slot />
 
     <ClientOnly>

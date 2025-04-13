@@ -3,6 +3,36 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-04-13',
   devtools: { enabled: true },
 
+  app: {
+    head: {
+      title: 'Главный сварщик',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        // { 
+        //   hid: 'description', 
+        //   name: 'description', 
+        //   content: 'Купить высококачественное сварочное оборудование. Мы являемся официальным дистрибьютором ведущих брендов. Большой выбор, гарантия качества.' 
+        // },
+        // { 
+        //   hid: 'keywords', 
+        //   name: 'keywords', 
+        //   content: 'сварочное оборудование, оборудование для сварки, купить электроды, купить проволоку, купить источник, купить сварочный инвертор' 
+        // },
+        { name: 'format-detection', content: 'telephone=yes' }
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ],
+    },
+
+    pageTransition: { 
+      name: 'page', 
+      mode: 'out-in' 
+    },
+
+  },
+
   modules: [
     '@nuxt/icon',
     '@nuxt/image',
