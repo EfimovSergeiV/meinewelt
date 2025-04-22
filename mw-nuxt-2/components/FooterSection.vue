@@ -16,7 +16,7 @@
   <div class="text-gray-100 dark:text-gray-100">
     <div class="absolute w-screen left-0 bottom-0">
 
-      <div class="container mx-auto ">
+      <div class="container mx-auto px-8">
         <div class="flex items-center justify-center gap-8 py-4">
           <div class="">
             <nuxt-link :to="{ name: 'index' }">Главная</nuxt-link>
@@ -30,15 +30,13 @@
         </div>
 
 
-
       <ClientOnly>
-        <div class="hidden lg:block">
-          PWA Installed: {{ $pwa }}
-          PWA Installed: {{ $pwa?.isPWAInstalled }}
+        <div class="">
+          <div class="grid grid-cols-1 gap-1 text-center text-xs text-gray-300/95 mb-0.5">
+            <p class="">PWA Installed: {{ $pwa?.isPWAInstalled }} / Built Date: {{ date }}</p>
+            <p class="">PWA state: {{ $pwa }}</p>
+          </div>
         </div>
-      </ClientOnly>
-      <!-- <div v-show="$pwa.needRefresh"> -->
-
 
         <div>
           <div v-show="$pwa.needRefresh">
@@ -52,12 +50,11 @@
             </button>
           </div>      
         </div>
-
+      </ClientOnly>
+      <!-- <div v-show="$pwa.needRefresh"> -->
 
 
       <div>
-        <div>Built Date: {{ date }}</div>
-
         <div v-if="$pwa?.offlineReady || $pwa?.needRefresh" class="pwa-toast" role="alert">
           <div class="message">
             <span v-if="$pwa.offlineReady">
