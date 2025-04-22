@@ -12,7 +12,7 @@ const date = useAppConfig().buildDate
 </script>
 
 <template>
-  <div>
+  <div class="bg-fixed bg-no-repeat bg-cover bg-[url('movie-bg.webp')] dark:bg-[url('movie-bg.webp')] min-h-screen">
 
     <NuxtPwaAssets />
 

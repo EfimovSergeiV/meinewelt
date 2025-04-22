@@ -13,7 +13,7 @@
 
 
 <template>
-  <div class="">
+  <div class="text-gray-100 dark:text-gray-100">
     <div class="absolute w-screen left-0 bottom-0">
 
       <div class="container mx-auto ">
