@@ -1,8 +1,8 @@
 <template>
   <div class="container mx-auto">
 
-    <div class="text-gray-100 dark:text-gray-100">
-      <p>This links page</p>
+    <div class="flex items-center justify-center text-gray-100 dark:text-gray-100">
+      <p class="text-2xl font-semibold">Ты бы дала за такой сайт?</p>
     </div>
 
 

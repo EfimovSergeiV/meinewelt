@@ -18,7 +18,7 @@
 <template>
   <div class="flex flex-wrap gap-4 text-gray-100 dark:text-gray-100">
     <div v-for="skill in skillsList" :key="skill.id" class="">
-      <div class="">
+      <div class="bg-blue-900/70 rounded-full px-6 py-1">
         <p>{{ skill.title }}</p>
       </div>
     </div>

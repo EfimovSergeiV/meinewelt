@@ -5,7 +5,7 @@
         <nuxt-link :to="{ name: 'index' }">Главная</nuxt-link>
       </div>
       <div class="">
-        <p>Блог</p>
+        <nuxt-link :to="{ name: 'links' }">Блог</nuxt-link>
       </div>
       <div class="">
         <nuxt-link :to="{ name: 'links' }">Ссылки</nuxt-link>

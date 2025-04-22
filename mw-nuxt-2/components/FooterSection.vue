@@ -22,7 +22,7 @@
             <nuxt-link :to="{ name: 'index' }">Главная</nuxt-link>
           </div>
           <div class="">
-            <p>Блог</p>
+            <nuxt-link :to="{ name: 'links' }">Блог</nuxt-link>
           </div>
           <div class="">
             <nuxt-link :to="{ name: 'links' }">Ссылки</nuxt-link>
@@ -32,8 +32,10 @@
 
 
       <ClientOnly>
-        PWA Installed: {{ $pwa }}
-        PWA Installed: {{ $pwa?.isPWAInstalled }}
+        <div class="hidden lg:block">
+          PWA Installed: {{ $pwa }}
+          PWA Installed: {{ $pwa?.isPWAInstalled }}
+        </div>
       </ClientOnly>
       <!-- <div v-show="$pwa.needRefresh"> -->
 
