@@ -14,6 +14,11 @@
   background-color: #f8dc08;
 }
 
+::selection {
+  background: oklch(71.5% 0.143 215.221);
+  color: #fff;
+ }
+
 
 .page-enter-active,
 .page-leave-active {
