@@ -1,3 +1,5 @@
+import cfg from "./conf"
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
@@ -62,6 +64,12 @@ export default defineNuxtConfig({
       suppressWarnings: true,
       navigateFallback: '/',
       navigateFallbackAllowlist: [/^\/$/],
+    },
+  },
+
+  runtimeConfig: {
+    public: {
+      baseURL: process.env.BASE_URL || cfg.BASE_URL,
     },
   },
 })

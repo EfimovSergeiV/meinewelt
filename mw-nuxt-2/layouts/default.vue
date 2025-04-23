@@ -1,8 +1,16 @@
 <script setup>
-// If you want to use it in setup, import from the nuxtApp.
-const { $pwa } = useNuxtApp()
-const date = useAppConfig().buildDate
-// const toast = useToast()
+  const config = useRuntimeConfig()
+
+  // If you want to use it in setup, import from the nuxtApp.
+  const { $pwa } = useNuxtApp()
+  const date = useAppConfig().buildDate
+  // const toast = useToast()
+
+  console.log(config.public)
+
+  const skills = await $fetch(`${ config.public.baseURL }bl/skills/`, { method: 'GET' }).catch((error) => error.data)
+
+  console.log(skills)
 
   onMounted(() => {
     if ($pwa.offlineReady)
@@ -18,9 +26,8 @@ const date = useAppConfig().buildDate
 
     <div class="">
       <div class="min-h-screen ">
-        <HeaderSection />
-
-        <slot />
+        <HeaderSection  :skills="skills" />
+        <slot :skills="skills" />
         <FooterSection class="" />
       </div>
       

@@ -1,3 +1,12 @@
+<script setup>
+  const config = useRuntimeConfig()
+
+
+  const skills = await $fetch(`${ config.public.baseURL }bl/skills/`, { method: 'GET' }).catch((error) => error.data)
+
+</script>
+
+
 <template>
   <div class="container mx-auto">
     
@@ -15,9 +24,9 @@
           <p class="text-2xl font-semibold">Сергей Ефимов</p>
         </div>
       </div>
-      
 
-      <BadgesSection class="flex items-center justify-center py-8" />
+      <BadgesSection :skills="skills" class="flex items-center justify-center py-8" />
+
     </div>
 
   </div>
