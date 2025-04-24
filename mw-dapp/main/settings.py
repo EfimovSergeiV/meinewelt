@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+from main.conf import *
 import os
 from pathlib import Path
 
@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-=z#1@z*qov2)o(rf)znqf-3kxxu3p(xkg!^1x&y71zi^*=88n*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1',]
+ALLOWED_HOSTS = [
+    "*",
+]
 
 
 # Application definition
