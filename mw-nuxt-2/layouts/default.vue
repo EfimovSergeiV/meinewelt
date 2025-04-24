@@ -21,9 +21,9 @@
 
     <div class="">
       <div class="min-h-screen flex flex-col justify-between">
-        <HeaderSection  :skills="skills" />
+        <HeaderSection />
         <slot />
-        <FooterSection class="" />
+        <FooterSection />
       </div>
     </div>
     
