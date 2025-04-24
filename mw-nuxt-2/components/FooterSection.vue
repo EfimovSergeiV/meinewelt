@@ -14,7 +14,7 @@
 
 <template>
   <div class="text-gray-100 dark:text-gray-100">
-    <div class="absolute w-screen left-0 bottom-0">
+    <div class="py-2 bottom-0">
 
       <div class="container mx-auto px-8">
         <div class="flex items-center justify-center gap-8 py-4">

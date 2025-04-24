@@ -1,40 +1,31 @@
 <script setup>
-  const config = useRuntimeConfig()
+  // const config = useRuntimeConfig()
 
   // If you want to use it in setup, import from the nuxtApp.
-  const { $pwa } = useNuxtApp()
-  const date = useAppConfig().buildDate
+  // const { $pwa } = useNuxtApp()
+  // const date = useAppConfig().buildDate
   // const toast = useToast()
 
-  console.log(config.public)
 
-  const skills = await $fetch(`${ config.public.baseURL }bl/skills/`, { method: 'GET' }).catch((error) => error.data)
-
-  console.log(skills)
-
-  onMounted(() => {
-    if ($pwa.offlineReady)
-      // toast.success('App ready to work offline')
-     alert('App ready to work offline')
-  })
+  // onMounted(() => {
+  //   if ($pwa.offlineReady)
+  //     // toast.success('App ready to work offline')
+  //    alert('App ready to work offline')
+  // })
 </script>
 
 <template>
-  <div class="bg-fixed bg-no-repeat bg-cover bg-[url('movie-bg.webp')] dark:bg-[url('movie-bg.webp')] min-h-screen">
+  <div class="bg-fixed bg-no-repeat bg-cover bg-center bg-[url('movie-bg.webp')] dark:bg-[url('movie-bg.webp')] min-h-screen">
 
     <NuxtPwaAssets />
 
     <div class="">
-      <div class="min-h-screen ">
+      <div class="min-h-screen flex flex-col justify-between">
         <HeaderSection  :skills="skills" />
-        <slot :skills="skills" />
+        <slot />
         <FooterSection class="" />
       </div>
-      
-
-
     </div>
-
     
   </div>
 </template>
