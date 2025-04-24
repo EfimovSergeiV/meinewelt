@@ -29,10 +29,10 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <div v-for="link in links" :key="link.id" class="text-gray-100 dark:text-gray-100">
-        <div class="bg-cyan-900/70 border border-cyan-500/50">
+        <div class="bg-cyan-900/70 border border-cyan-500/50 rounded-xl">
           
-          <div class="rounded-full">
-            <img :src="link.img" class="w-full" >
+          <div class="">
+            <img :src="link.img" class="w-full rounded-t-xl" >
             <div class="grid grid-cols-1 gap-4 px-2 py-2">
 
               
