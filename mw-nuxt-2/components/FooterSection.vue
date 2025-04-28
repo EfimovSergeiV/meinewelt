@@ -17,17 +17,19 @@
     <div class="py-2 min-h-32 flex flex-col items-center justify-end">
 
       <div class="container mx-auto px-8">
-        <div class="flex items-center justify-center gap-8 py-4">
-          <div class="">
-            <nuxt-link :to="{ name: 'index' }">Главная</nuxt-link>
-          </div>
-          <div class="">
-            <nuxt-link :to="{ name: 'links' }">Блог</nuxt-link>
-          </div>
-          <div class="">
-            <nuxt-link :to="{ name: 'links' }">Ссылки</nuxt-link>
-          </div>
+        <div class="flex flex-row items-center justify-center gap-4 py-2">
+        <div>
+          <nuxt-link :to="{ name: 'index' }" class="font-semibold italic uppercase text-lg">Главная</nuxt-link>
         </div>
+        <p class="font-semibold italic uppercase text-2xl">/</p>
+        <div class="">
+          <nuxt-link :to="{ name: 'links' }" class="font-semibold italic uppercase text-lg">Блог</nuxt-link>
+        </div>
+        <p class="font-semibold italic uppercase text-2xl">/</p>
+        <div class="">
+          <nuxt-link :to="{ name: 'links' }" class="font-semibold italic uppercase text-lg">Ссылки</nuxt-link>
+        </div>
+      </div>
 
 
       <ClientOnly>

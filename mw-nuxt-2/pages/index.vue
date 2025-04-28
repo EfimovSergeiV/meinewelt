@@ -8,7 +8,7 @@
 
 
 <template>
-  <div class="container mx-auto">
+  <div class="container mx-auto px-8">
     
     <div class="text-gray-100 dark:text-gray-100">
 
