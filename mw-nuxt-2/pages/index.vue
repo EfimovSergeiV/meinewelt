@@ -45,9 +45,9 @@
       </div>
 
       <div class="grid grid-cols-3 gap-8 my-8">
-        <button class="bg-blue-600 rounded-md text-white py-4 hover:bg-blue-600/90 active:bg-blue-700/90 transition duration-300" @click="firstButton(); changeLatest(`first btn`)">First button</button>
-        <button class="bg-blue-600 rounded-md text-white py-4 hover:bg-blue-600/90 active:bg-blue-700/90 transition duration-300" @click="secondButton(); changeLatest(`second btn`)">Second button</button>
-        <button class="bg-blue-600 rounded-md text-white py-4 hover:bg-blue-600/90 active:bg-blue-700/90 transition duration-300" @click="thirdButton(); changeLatest(`third btn`)">Third button</button>
+        <button id="first-btn" class="bg-blue-600 rounded-md text-white py-4 hover:bg-blue-600/90 active:bg-blue-700/90 transition duration-300" @click="firstButton(); changeLatest(`first btn`)">First button</button>
+        <button id="second-btn" class="bg-blue-600 rounded-md text-white py-4 hover:bg-blue-600/90 active:bg-blue-700/90 transition duration-300" @click="secondButton(); changeLatest(`second btn`)">Second button</button>
+        <button id="third-btn" class="bg-blue-600 rounded-md text-white py-4 hover:bg-blue-600/90 active:bg-blue-700/90 transition duration-300" @click="thirdButton(); changeLatest(`third btn`)">Third button</button>
       </div>
 
     </div>
