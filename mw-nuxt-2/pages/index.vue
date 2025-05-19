@@ -36,10 +36,13 @@
 
 <template>
   <div class="container mx-auto px-4 py-8">
-    <p class="text-2xl">Test yandex metrika</p>
+    <p class="text-white text-2xl">Test yandex metrika</p>
 
     <div class="mt-6">
-      <p class="text-xl">Latest button clicked: {{ latestButton }} {{ counterButton }}</p>
+      <div class="flex items-center gap-6">
+        <p class="text-white text-xl font-semibold">Latest button clicked:</p>
+        <p class="text-white text-xl">{{ latestButton }} {{ counterButton }}</p>
+      </div>
 
       <div class="grid grid-cols-3 gap-8 my-8">
         <button class="bg-blue-600 rounded-md text-white py-4 hover:bg-blue-600/90 active:bg-blue-700/90 transition duration-300" @click="firstButton(); changeLatest(`first btn`)">First button</button>

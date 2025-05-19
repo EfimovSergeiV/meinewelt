@@ -15,16 +15,15 @@
 </script>
 
 <template>
-  <!-- <div class="bg-fixed bg-no-repeat bg-cover bg-center bg-[url('movie-bg.webp')] dark:bg-[url('movie-bg.webp')] min-h-screen"> -->
-  <div class=" min-h-screen">
+  <div class="bg-fixed bg-no-repeat bg-cover bg-center bg-[url('movie-bg.webp')] dark:bg-[url('movie-bg.webp')] min-h-screen">
 
     <NuxtPwaAssets />
 
     <div class="">
       <div class="min-h-screen flex flex-col justify-between">
-        <!-- <HeaderSection /> -->
+        <HeaderSection />
         <slot />
-        <!-- <FooterSection /> -->
+        <FooterSection />
       </div>
     </div>
     
