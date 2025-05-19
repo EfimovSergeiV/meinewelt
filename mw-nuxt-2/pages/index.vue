@@ -1,33 +1,52 @@
 <script setup>
-  const config = useRuntimeConfig()
+  const ctx = useNuxtApp()
 
 
-  const skills = await $fetch(`${ config.public.baseURL }bl/skills/`, { method: 'GET' }).catch((error) => error.data)
+
+  const firstButton = () => {
+    if (import.meta.client) {
+      ctx.$metrika.reachGoal('FIRST_BUTTON')
+    }
+  }
+
+  const secondButton = () => {
+    if (import.meta.client) {
+      ctx.$metrika.reachGoal('SECOND_BUTTON')
+    }
+  }
+
+  const thirdButton = () => {
+    if (import.meta.client) {
+      ctx.$metrika.reachGoal('THIRD_BUTTON')
+    }
+  }
+
+  const latestButton = ref("")
+  const counterButton = ref(null)
+  const changeLatest = (latest) => {
+    if ( latestButton.value === latest ) {
+      counterButton.value = counterButton.value + 1
+    } else {
+      latestButton.value = latest
+      counterButton.value = null     
+    }
+  }
 
 </script>
 
-
 <template>
-  <div class="container mx-auto px-8">
-    
-    <div class="text-gray-100 dark:text-gray-100">
+  <div class="container mx-auto px-4 py-8">
+    <p class="text-2xl">Test yandex metrika</p>
 
-      <div class="flex items-center justify-center">
-        <img src="/profile-img.jpg" class="profile-img h-48 text-blue-600" >
+    <div class="mt-6">
+      <p class="text-xl">Latest button clicked: {{ latestButton }} {{ counterButton }}</p>
+
+      <div class="grid grid-cols-3 gap-8 my-8">
+        <button class="bg-blue-600 rounded-md text-white py-4 hover:bg-blue-600/90 active:bg-blue-700/90 transition duration-300" @click="firstButton(); changeLatest(`first btn`)">First button</button>
+        <button class="bg-blue-600 rounded-md text-white py-4 hover:bg-blue-600/90 active:bg-blue-700/90 transition duration-300" @click="secondButton(); changeLatest(`second btn`)">Second button</button>
+        <button class="bg-blue-600 rounded-md text-white py-4 hover:bg-blue-600/90 active:bg-blue-700/90 transition duration-300" @click="thirdButton(); changeLatest(`third btn`)">Third button</button>
       </div>
-
-      <div class="grid grid-cols-1 gap-2">
-        <div class="flex items-center justify-center">
-          <p class="text-2xl font-semibold">S2NULLNULLACHTUNDFÜNFZIG</p>
-        </div>
-        <div class="flex items-center justify-center">
-          <p class="text-2xl font-semibold">Сергей Ефимов</p>
-        </div>
-      </div>
-
-      <BadgesSection :skills="skills" class="flex items-center justify-center py-8" />
 
     </div>
-
   </div>
 </template>

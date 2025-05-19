@@ -2,7 +2,7 @@ import cfg from "./conf"
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
+  compatibilityDate: '2025-06-18',
   devtools: { enabled: false },
 
   vite: {
@@ -21,6 +21,36 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
+      ],
+      script: [
+        {
+          async: true,
+          src: 'https://mc.yandex.ru/metrika/tag.js'
+        },
+        {
+          hid: 'metrika-init',
+          innerHTML: `
+            window.ym = window.ym || function() {
+              (window.ym.a = window.ym.a || []).push(arguments);
+            };
+            window.ym.l = +new Date();
+            ym(101984567, "init", {
+              clickmap:true,
+              trackLinks:true,
+              accurateTrackBounce:true,
+              webvisor:true
+            });
+          `,
+          type: 'text/javascript'
+        }
+      ],
+      __dangerouslyDisableSanitizersByTagID: {
+        'metrika-init': ['innerHTML']
+      },
+      noscript: [
+        {
+          children: `<div><img src="https://mc.yandex.ru/watch/30996406" style="position:absolute; left:-9999px;" alt="" /></div>`
+        }
       ]
     },
 
