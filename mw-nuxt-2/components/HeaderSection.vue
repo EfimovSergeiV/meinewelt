@@ -22,7 +22,7 @@
         </div>
         <p class="font-semibold italic uppercase text-sm md:text-2xl">/</p>
         <div class="">
-          <nuxt-link :to="{ name: 'links' }" class="font-semibold italic uppercase text-xs md:text-lg">Блог</nuxt-link>
+          <nuxt-link :to="{ name: 'exx' }" class="font-semibold italic uppercase text-xs md:text-lg">EXX</nuxt-link>
         </div>
         <p class="font-semibold italic uppercase text-sm md:text-2xl">/</p>
         <div class="">
