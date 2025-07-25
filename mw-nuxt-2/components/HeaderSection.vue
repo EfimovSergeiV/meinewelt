@@ -18,7 +18,7 @@
 
       <div class="flex flex-row items-center gap-2 md:gap-4 ">
         <div>
-          <nuxt-link :to="{ name: 'index' }" class="font-semibold italic uppercase text-xs md:text-lg">Главная</nuxt-link>
+          <nuxt-link :to="{ name: 'index' }" class="font-semibold italic uppercase text-xs md:text-lg">INDEX</nuxt-link>
         </div>
         <p class="font-semibold italic uppercase text-sm md:text-2xl">/</p>
         <div class="">
@@ -26,7 +26,7 @@
         </div>
         <p class="font-semibold italic uppercase text-sm md:text-2xl">/</p>
         <div class="">
-          <nuxt-link :to="{ name: 'about' }" class="font-semibold italic uppercase text-xs md:text-lg">Ссылки</nuxt-link>
+          <nuxt-link :to="{ name: 'tech' }" class="font-semibold italic uppercase text-xs md:text-lg">TECH</nuxt-link>
         </div>
       </div>
 
