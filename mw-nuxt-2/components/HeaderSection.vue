@@ -7,7 +7,7 @@
 
 
 <template>
-  <div class="container mx-auto px-8">
+  <div class="container mx-auto px-4">
     <div class="flex flex-row items-center w-full justify-between py-4 text-gray-100 dark:text-gray-100">
       
       <div class="">
