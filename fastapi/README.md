@@ -29,8 +29,8 @@ After=network.target
 [Service]
 User=user
 Group=user
-WorkingDirectory=/home/user/fastapi
-ExecStart=/home/user/fastapi/venv/bin/uvicorn main:app --host 0.0.0.0 --port 8080 --workers 1
+WorkingDirectory=/home/user/meinewelt/fastapi
+ExecStart=/home/user/meinewelt/fastapi/venv/bin/uvicorn main:app --host 0.0.0.0 --port 8080 --workers 1
 Restart=always
 RestartSec=5
 
