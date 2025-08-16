@@ -73,6 +73,9 @@ server {
 
 
 ```zsh
+# Install
+npm install -g wscat
+
 # Connect to websocket
 wscat -c ws://api.meinewelt.ru/ws
 
