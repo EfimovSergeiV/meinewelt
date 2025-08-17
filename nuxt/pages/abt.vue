@@ -39,7 +39,7 @@
 
     <div class="grid grid-cols-1 gap-4">
       <p class="text-white text-2xl font-semibold">В этом проекте я обкатываю и учусь технологиям</p>
-      <p class="text-white text-xl">Связаться со мной, пригласить поучавствовать в каком то проекте, можно по почте <a href="mailto:efimovsergeiv@gmail.com" class="text-white underline">efimovsergeiv@gmail.com</a></p>
+      <p class="text-white text-xl">Связаться со мной, пригласить поучавствовать в каком то проекте, можно по почте <a href="mailto:efimovsergeiv@gmail.com" target="_blank" class="text-white underline">efimovsergeiv@gmail.com</a></p>
       <div class="mt-6 flex items-center gap-6">
         <p class="text-white text-xl">Так же я в соцсетях:</p>
         <a href="https://vk.com/s2nullnullachtundfunfzig" target="_blank" class="text-white text-xl font-semibold underline">VK.RU</a>
