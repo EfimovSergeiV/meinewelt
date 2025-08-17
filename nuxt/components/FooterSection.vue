@@ -1,6 +1,7 @@
 <script setup>
   // If you want to use it in setup, import from the nuxtApp.
   const { $pwa } = useNuxtApp()
+  const route = useRoute()
   const date = useAppConfig().buildDate
   // const toast = useToast()
 
@@ -18,18 +19,26 @@
 
       <div class="container mx-auto px-8">
         <div class="flex flex-row items-center justify-center gap-4 py-2">
-        <div>
-          <nuxt-link :to="{ name: 'index' }" class="font-semibold italic uppercase text-lg">INX</nuxt-link>
+          <div>
+            <nuxt-link v-if="route.name === 'index'" :to="{ name: 'index' }" class="text-orange-600 font-semibold italic uppercase text-xs md:text-lg">INX</nuxt-link>
+            <nuxt-link v-else :to="{ name: 'index' }" class="font-semibold italic uppercase text-xs md:text-lg">INX</nuxt-link>
+          </div>
+          <p class="font-semibold italic uppercase text-sm md:text-2xl">/</p>
+          <div class="">
+            <nuxt-link v-if="route.name === 'cht'" :to="{ name: 'cht' }" class="text-orange-600 font-semibold italic uppercase text-xs md:text-lg">CHT</nuxt-link>
+            <nuxt-link v-else :to="{ name: 'cht' }" class="font-semibold italic uppercase text-xs md:text-lg">CHT</nuxt-link>
+          </div>
+          <p class="font-semibold italic uppercase text-sm md:text-2xl">/</p>
+          <div class="">
+            <nuxt-link v-if="route.name === 'exx'" :to="{ name: 'exx' }" class="text-orange-600 font-semibold italic uppercase text-xs md:text-lg">EXX</nuxt-link>
+            <nuxt-link v-else :to="{ name: 'exx' }" class="font-semibold italic uppercase text-xs md:text-lg">EXX</nuxt-link>
+          </div>
+          <p class="font-semibold italic uppercase text-sm md:text-2xl">/</p>
+          <div class="">
+            <nuxt-link v-if="route.name === 'abt'" :to="{ name: 'abt' }" class="text-orange-600 font-semibold italic uppercase text-xs md:text-lg">ABT</nuxt-link>
+            <nuxt-link v-else :to="{ name: 'abt' }" class="font-semibold italic uppercase text-xs md:text-lg">ABT</nuxt-link>
+          </div>
         </div>
-        <p class="font-semibold italic uppercase text-2xl">/</p>
-        <div class="">
-          <nuxt-link :to="{ name: 'exx' }" class="font-semibold italic uppercase text-lg">EXX</nuxt-link>
-        </div>
-        <p class="font-semibold italic uppercase text-2xl">/</p>
-        <div class="">
-          <nuxt-link :to="{ name: 'abt' }" class="font-semibold italic uppercase text-lg">ABT</nuxt-link>
-        </div>
-      </div>
 
 
       <ClientOnly>

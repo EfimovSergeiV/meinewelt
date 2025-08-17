@@ -51,7 +51,7 @@ async def chat_endpoint(websocket: WebSocket):
         data = await websocket.receive_text()
         messages.append({"text": data, "time": datetime.now().strftime('%Y-%m-%d %H:%M:%S')})
         await websocket.send_json(messages)
-        if len(messages) > 10:
+        if len(messages) > 3:
             messages.pop(0)
 
 
