@@ -18,7 +18,7 @@ html = """
         <ul id='messages'>
         </ul>
         <script>
-            var ws = new WebSocket("ws://localhost:8000/ws");
+            var ws = new WebSocket("ws://localhost:8000/chat");
             ws.onmessage = function(event) {
                 var messages = document.getElementById('messages')
                 var message = document.createElement('li')
@@ -41,6 +41,19 @@ html = """
 @app.get("/")
 async def get():
     return HTMLResponse(html)
+
+from datetime import datetime
+messages = []
+@app.websocket("/chat")
+async def chat_endpoint(websocket: WebSocket):
+    await websocket.accept()
+    while True:
+        data = await websocket.receive_text()
+        messages.append({"text": data, "time": datetime.now().strftime('%Y-%m-%d %H:%M:%S')})
+        await websocket.send_json(messages)
+        if len(messages) > 10:
+            messages.pop(0)
+
 
 
 from data import gen_datasets, floating_list_make

@@ -19,7 +19,7 @@
       <div class="container mx-auto px-8">
         <div class="flex flex-row items-center justify-center gap-4 py-2">
         <div>
-          <nuxt-link :to="{ name: 'index' }" class="font-semibold italic uppercase text-lg">INDEX</nuxt-link>
+          <nuxt-link :to="{ name: 'index' }" class="font-semibold italic uppercase text-lg">INX</nuxt-link>
         </div>
         <p class="font-semibold italic uppercase text-2xl">/</p>
         <div class="">
@@ -27,7 +27,7 @@
         </div>
         <p class="font-semibold italic uppercase text-2xl">/</p>
         <div class="">
-          <nuxt-link :to="{ name: 'tech' }" class="font-semibold italic uppercase text-lg">TECH</nuxt-link>
+          <nuxt-link :to="{ name: 'tech' }" class="font-semibold italic uppercase text-lg">ABT</nuxt-link>
         </div>
       </div>
 

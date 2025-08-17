@@ -3,6 +3,13 @@
   import BubbleChart from '@/components/charts/BubbleChart.vue'
   import MultiAxisLineChart from '@/components/charts/MultiAxisLineChart.vue'
 
+  import AnimateBubbleChart from '@/components/charts/AnimateBubbleChart.vue'
+  import AnimateChartSimple from '@/components/charts/AnimateChartSimple.vue'
+  import AnimateMultiAxisLineChart from '@/components/charts/AnimateMultiAxisLineChart.vue'
+  import AnimateProgressiveLineChart from '@/components/charts/AnimateProgressiveLineChart.vue'
+  import AnimateWatchChart from '@/components/charts/AnimateWatchChart.vue'
+
+
 
   const copyToClipboardCMD = (cmd) => {
     navigator.clipboard.writeText(cmd)
@@ -56,7 +63,35 @@
           <MultiAxisLineChart />
           <button class="mt-4 text-xs text-blue-600" @click="copyToClipboard('components/charts/MultiAxisLineChart')">Скопировать код</button>
         </div>
-      
+
+
+
+        <div class="bg-white px-4 py-2 rounded-lg shadow-md">
+          <AnimateBubbleChart />
+          <button disabled class="mt-4 text-xs text-blue-600" @click="copyToClipboard('components/charts/MultiAxisLineChart')">Скопировать код</button>
+        </div>
+
+
+        <div class="bg-white px-4 py-2 rounded-lg shadow-md">
+          <AnimateChartSimple />
+          <button disabled class="mt-4 text-xs text-blue-600" @click="copyToClipboard('components/charts/MultiAxisLineChart')">Скопировать код</button>
+        </div>
+
+
+        <div class="bg-white px-4 py-2 rounded-lg shadow-md">
+          <AnimateMultiAxisLineChart />
+          <button disabled class="mt-4 text-xs text-blue-600" @click="copyToClipboard('components/charts/MultiAxisLineChart')">Скопировать код</button>
+        </div>
+
+        <div class="bg-white px-4 py-2 rounded-lg shadow-md">
+          <AnimateProgressiveLineChart />
+          <button disabled class="mt-4 text-xs text-blue-600" @click="copyToClipboard('components/charts/MultiAxisLineChart')">Скопировать код</button>
+        </div>
+
+        <div class="bg-white px-4 py-2 rounded-lg shadow-md">
+          <AnimateWatchChart />
+          <button disabled class="mt-4 text-xs text-blue-600" @click="copyToClipboard('components/charts/MultiAxisLineChart')">Скопировать код</button>
+        </div>
       
       
       </div>
