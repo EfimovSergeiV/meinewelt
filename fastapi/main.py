@@ -43,16 +43,44 @@ async def get():
     return HTMLResponse(html)
 
 from datetime import datetime
+# messages = []
+# @app.websocket("/chat")
+# async def chat_endpoint(websocket: WebSocket):
+#     await websocket.accept()
+#     while True:
+#         data = await websocket.receive_text()
+#         print("Received message: ", data)
+#         messages.append({"text": data, "time": datetime.now().strftime('%Y-%m-%d %H:%M:%S')})
+#         await websocket.send_json(messages)
+#         if len(messages) > 3:
+#             messages.pop(0)
+
+
 messages = []
+clients = []
+
 @app.websocket("/chat")
 async def chat_endpoint(websocket: WebSocket):
     await websocket.accept()
-    while True:
-        data = await websocket.receive_text()
-        messages.append({"text": data, "time": datetime.now().strftime('%Y-%m-%d %H:%M:%S')})
-        await websocket.send_json(messages)
-        if len(messages) > 3:
-            messages.pop(0)
+    clients.append(websocket)
+    # сразу отправляем текущую историю
+    await websocket.send_json(messages)
+
+    try:
+        while True:
+            data = await websocket.receive_text()
+            messages.append({
+                "text": data,
+                "time": datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            })
+            if len(messages) > 3:
+                messages.pop(0)
+
+            # рассылаем всем клиентам
+            for client in clients:
+                await client.send_json(messages)
+    except:
+        clients.remove(websocket)
 
 
 
