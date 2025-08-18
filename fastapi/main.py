@@ -73,7 +73,7 @@ async def chat_endpoint(websocket: WebSocket):
                 "text": data,
                 "time": datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             })
-            if len(messages) > 3:
+            if len(messages) > 10:
                 messages.pop(0)
 
             # рассылаем всем клиентам

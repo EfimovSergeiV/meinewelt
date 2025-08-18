@@ -42,35 +42,47 @@ onBeforeUnmount(() => socket?.close());
 </script>
 
 <template>
-  <div class="max-w-xl mx-auto p-6 bg-gray-100 rounded-xl shadow">
-    <h2 class="text-xl font-bold mb-4">💬 Чат</h2>
+  <div class="">
 
-    <!-- Список сообщений -->
-    <div class="h-64 overflow-y-auto bg-white p-4 rounded-lg shadow-inner mb-4">
-      <div
-        v-for="(msg, i) in messages"
-        :key="i"
-        class="mb-2 p-2 rounded-lg bg-blue-100"
-      >
-        <div class="text-sm text-gray-500">{{ msg.time }}</div>
-        <div class="text-gray-800">{{ msg.text }}</div>
+    <div class="grid grid-cols-2 gap-4">
+
+      <!-- Список сообщений -->
+      <div class="overflow-y-auto p-4 rounded-lg shadow-inner mb-4">
+        <div
+          v-for="(msg, i) in messages"
+          :key="i"
+          class="mb-2 p-2 rounded-lg bg-blue-100"
+        >
+          <div class="text-sm text-gray-500">{{ msg.time }}</div>
+          <div class="text-gray-800">{{ msg.text }}</div>
+        </div>
       </div>
+
+      <!-- Поле ввода -->
+      <div class=" ">
+        <div>
+          <textarea
+            v-model="message"
+            rows="3"
+            class="px-4 py-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+            placeholder="Напишите сообщение..."
+          />          
+        </div>
+        <div>
+          <button
+            @click="sendMessage"
+            class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+          >
+            Отправить
+          </button>          
+        </div>
+
+
+      </div>
+
     </div>
 
-    <!-- Поле ввода -->
-    <div class="flex gap-2">
-      <textarea
-        v-model="message"
-        rows="2"
-        class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-        placeholder="Напишите сообщение..."
-      />
-      <button
-        @click="sendMessage"
-        class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-      >
-        Отправить
-      </button>
-    </div>
+
+
   </div>
 </template>
