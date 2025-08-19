@@ -1,4 +1,6 @@
 <script setup>
+import ThreeExample from '~/components/ThreeExample.vue';
+
 
 
 
@@ -10,7 +12,13 @@
   
   
   <div class="container mx-auto px-4 py-8">
-    <SocketChat />
+    <div class="grid grid-cols-2">
+      <SocketChat />
+      <ThreeExample />
+    </div>
+
+  
+  
   </div>
 
 </template>
