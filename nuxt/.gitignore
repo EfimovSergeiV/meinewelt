@@ -6,6 +6,7 @@
 .cache
 dist
 output.zip
+output.*.zip
 conf.ts
 
 # Node dependencies

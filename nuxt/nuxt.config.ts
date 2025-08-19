@@ -65,12 +65,17 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/scripts',
     '@vite-pwa/nuxt',
+    '@tresjs/nuxt',
   ],
   css: [
     '~/assets/css/tailwind.css',
     '~/assets/css/main.css',
     // '@mdi/font/css/materialdesignicons.min.css',
   ],
+
+  tres: {
+    glsl: true,
+  },
 
   appConfig: {
     // you don't need to include this: only for testing purposes
