@@ -1,25 +1,21 @@
 <script setup>
   import { TresCanvas, useLoader, useRenderLoop } from '@tresjs/core'
   import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-  // const { GLTFLoader, OrbitControls, THREE } = useLoader()
 
   import { OrbitControls } from '@tresjs/cientos'
   import * as THREE from 'three'
 
   const { scene } = await useLoader(GLTFLoader, '/PotPlant.glb')
 
-  // Центрируем модель
   const box = new THREE.Box3().setFromObject(scene)
   const center = box.getCenter(new THREE.Vector3())
   const size = box.getSize(new THREE.Vector3())
   scene.position.sub(center)
 
-  // Вычисляем дистанцию камеры
   const maxDim = Math.max(size.x, size.y, size.z)
   const fov = 45
   const cameraZ = maxDim / (2 * Math.tan((Math.PI * fov) / 360))
 
-  // Автоматическое вращение
   useRenderLoop().onLoop(() => {
     scene.rotation.y += 0.002
   })
