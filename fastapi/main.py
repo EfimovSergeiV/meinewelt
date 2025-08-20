@@ -70,6 +70,7 @@ async def chat_endpoint(websocket: WebSocket):
         while True:
             data = await websocket.receive_text()
             new_message = {
+                "client_id": id(websocket),
                 "text": data,
                 "time": datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             }
