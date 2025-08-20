@@ -1,67 +1,83 @@
 <script setup>
-import { Scene, PerspectiveCamera, WebGLRenderer, AmbientLight, DirectionalLight, Box3, Vector3 } from 'three'
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
+  import { 
+    Scene, PerspectiveCamera, WebGLRenderer, 
+    AmbientLight, DirectionalLight, Box3, Vector3 
+  } from 'three'
+  import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
+  import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
-let renderer
-const experience = ref(null)
+  let renderer, controls, model
+  const experience = ref(null)
 
-const scene = new Scene()
+  const scene = new Scene()
 
-// свет
-const ambient = new AmbientLight(0xffffff, 1)
-scene.add(ambient)
+  // свет
+  const ambient = new AmbientLight(0xffffff, 1)
+  scene.add(ambient)
 
-const dirLight = new DirectionalLight(0xffffff, 1)
-dirLight.position.set(5, 10, 7.5)
-scene.add(dirLight)
+  const dirLight = new DirectionalLight(0xffffff, 1)
+  dirLight.position.set(5, 10, 7.5)
+  scene.add(dirLight)
 
-// камера
-const camera = new PerspectiveCamera(45, 1, 0.1, 1000)
-camera.position.set(0, 0, 4)
-scene.add(camera)
+  // камера
+  const camera = new PerspectiveCamera(45, 1, 0.1, 1000)
+  camera.position.set(0, 0, 4)
+  scene.add(camera)
 
-// загрузка модели
-const gltfLoader = new GLTFLoader()
-gltfLoader.load('/PotPlant.glb', (gltf) => {
-  const model = gltf.scene
+  // загрузка модели
+  const gltfLoader = new GLTFLoader()
+  gltfLoader.load('/PotPlant.glb', (gltf) => {
+    model = gltf.scene
 
-  // нормализация размера в 250×250
-  const box = new Box3().setFromObject(model)
-  const size = new Vector3()
-  box.getSize(size)
-  const maxDim = Math.max(size.x, size.y, size.z)
-  const scale = 2.5 / maxDim // коэффициент подгонки
-  model.scale.setScalar(scale)
+    // нормализация размера в 250×250
+    const box = new Box3().setFromObject(model)
+    const size = new Vector3()
+    box.getSize(size)
+    const maxDim = Math.max(size.x, size.y, size.z)
+    const scale = 2.5 / maxDim
+    model.scale.setScalar(scale)
 
-  // центрирование
-  const center = box.getCenter(new Vector3())
-  model.position.sub(center.multiplyScalar(scale))
+    // центрирование
+    const center = box.getCenter(new Vector3())
+    model.position.sub(center.multiplyScalar(scale))
 
-  scene.add(model)
-})
+    scene.add(model)
+  })
 
-function updateRenderer() {
-  renderer.setSize(250, 250)
-  renderer.render(scene, camera)
-}
-
-function setRenderer() {
-  if (experience.value) {
-    renderer = new WebGLRenderer({ canvas: experience.value, alpha: true, antialias: true })
-    renderer.setClearColor(0x000000, 0) // прозрачный фон
-    updateRenderer()
+  function updateRenderer() {
+    renderer.setSize(250, 250)
+    renderer.render(scene, camera)
   }
-}
 
-onMounted(() => {
-  setRenderer()
-  loop()
-})
+  function setRenderer() {
+    if (experience.value) {
+      renderer = new WebGLRenderer({ canvas: experience.value, alpha: true, antialias: true })
+      renderer.setClearColor(0x000000, 0) // прозрачный фон
 
-const loop = () => {
-  updateRenderer()
-  requestAnimationFrame(loop)
-}
+      // OrbitControls
+      controls = new OrbitControls(camera, renderer.domElement)
+      controls.enableDamping = true
+      controls.dampingFactor = 0.05
+      controls.enableZoom = false // если зум не нужен
+      updateRenderer()
+    }
+  }
+
+  onMounted(() => {
+    setRenderer()
+    loop()
+  })
+
+  const loop = () => {
+    if (model) {
+      // автоповорот
+      model.rotation.y += 0.005
+    }
+
+    if (controls) controls.update()
+      updateRenderer()
+      requestAnimationFrame(loop)
+    }
 </script>
 
 <template>
