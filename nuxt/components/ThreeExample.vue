@@ -1,7 +1,8 @@
 <script setup>
   import { 
     Scene, PerspectiveCamera, WebGLRenderer, 
-    AmbientLight, DirectionalLight, Box3, Vector3 
+    AmbientLight, DirectionalLight, Box3, Vector3, PointLight, HemisphereLight,
+    PCFSoftShadowMap
   } from 'three'
   import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
   import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
@@ -12,12 +13,31 @@
   const scene = new Scene()
 
   // свет
-  const ambient = new AmbientLight(0xffffff, 1)
+  const ambient = new AmbientLight(0x404040, 1)
+  ambient.intensity = 2
   scene.add(ambient)
 
   const dirLight = new DirectionalLight(0xffffff, 1)
   dirLight.position.set(5, 10, 7.5)
+  dirLight.intensity = 2
   scene.add(dirLight)
+
+  const point1 = new PointLight(0xffffff, 0.8)
+  point1.position.set(-5, 3, 5)
+  point1.intensity = 1.5
+  scene.add(point1)
+
+  // точечный свет справа
+  const point2 = new PointLight(0xffffff, 0.8)
+  point2.position.set(5, 3, 5)
+  scene.add(point2)
+
+  // верхний "небо+земля"
+  const hemiLight = new HemisphereLight(0xffffff, 0x444444, 0.6)
+  hemiLight.position.set(0, 10, 0)
+  hemiLight.intensity = 1
+  scene.add(hemiLight)
+
 
   // камера
   const camera = new PerspectiveCamera(45, 1, 0.1, 1000)
@@ -34,7 +54,7 @@
     const size = new Vector3()
     box.getSize(size)
     const maxDim = Math.max(size.x, size.y, size.z)
-    const scale = 2.5 / maxDim
+    const scale = 2 / maxDim
     model.scale.setScalar(scale)
 
     // центрирование
@@ -45,8 +65,11 @@
   })
 
   function updateRenderer() {
-    renderer.setSize(250, 250)
+    renderer.setSize(400, 400)
     renderer.render(scene, camera)
+    dirLight.castShadow = true
+    renderer.shadowMap.enabled = true
+    renderer.shadowMap.type = PCFSoftShadowMap
   }
 
   function setRenderer() {
@@ -82,7 +105,7 @@
 
 <template>
   <div class="flex items-center justify-center">
-    <div class="w-[250px] h-[250px]">
+    <div class="">
       <canvas ref="experience" />
     </div>
   </div>
