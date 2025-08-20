@@ -72,7 +72,7 @@ async def chat_endpoint(websocket: WebSocket):
             new_message = {
                 "client_id": id(websocket),
                 "text": data,
-                "time": datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                "time": datetime.now().strftime('%d-%m-%Y %H:%M:%S')
             }
             messages.append(new_message)
             if len(messages) > 10:
