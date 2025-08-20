@@ -54,17 +54,6 @@ async def get():
     return HTMLResponse(html)
 
 from datetime import datetime
-# messages = []
-# @app.websocket("/chat")
-# async def chat_endpoint(websocket: WebSocket):
-#     await websocket.accept()
-#     while True:
-#         data = await websocket.receive_text()
-#         print("Received message: ", data)
-#         messages.append({"text": data, "time": datetime.now().strftime('%Y-%m-%d %H:%M:%S')})
-#         await websocket.send_json(messages)
-#         if len(messages) > 3:
-#             messages.pop(0)
 
 
 messages = []
@@ -89,7 +78,7 @@ async def chat_endpoint(websocket: WebSocket):
 
             # рассылаем всем клиентам
             for client in clients:
-                await client.send_json(messages)
+                await client.send_json(data)
     except:
         clients.remove(websocket)
 
