@@ -12,8 +12,8 @@ import ThreeExample from '~/components/ThreeExample.vue';
   
   
   <div class="container mx-auto px-4 py-8">
-    <div class="grid grid-cols-2">
-      <SocketChat />
+    <div class="">
+      <!-- <SocketChat /> -->
       <ThreeExample />
     </div>
 

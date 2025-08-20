@@ -1,44 +1,73 @@
 <script setup>
-  import { TresCanvas, useLoader, useRenderLoop } from '@tresjs/core'
-  import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+import { Scene, PerspectiveCamera, WebGLRenderer, AmbientLight, DirectionalLight, Box3, Vector3 } from 'three'
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 
-  import { OrbitControls } from '@tresjs/cientos'
-  import * as THREE from 'three'
+let renderer
+const experience = ref(null)
 
-  const { scene } = await useLoader(GLTFLoader, '/PotPlant.glb')
+const scene = new Scene()
 
-  const box = new THREE.Box3().setFromObject(scene)
-  const center = box.getCenter(new THREE.Vector3())
-  const size = box.getSize(new THREE.Vector3())
-  scene.position.sub(center)
+// свет
+const ambient = new AmbientLight(0xffffff, 1)
+scene.add(ambient)
 
+const dirLight = new DirectionalLight(0xffffff, 1)
+dirLight.position.set(5, 10, 7.5)
+scene.add(dirLight)
+
+// камера
+const camera = new PerspectiveCamera(45, 1, 0.1, 1000)
+camera.position.set(0, 0, 4)
+scene.add(camera)
+
+// загрузка модели
+const gltfLoader = new GLTFLoader()
+gltfLoader.load('/PotPlant.glb', (gltf) => {
+  const model = gltf.scene
+
+  // нормализация размера в 250×250
+  const box = new Box3().setFromObject(model)
+  const size = new Vector3()
+  box.getSize(size)
   const maxDim = Math.max(size.x, size.y, size.z)
-  const fov = 45
-  const cameraZ = maxDim / (2 * Math.tan((Math.PI * fov) / 360))
+  const scale = 2.5 / maxDim // коэффициент подгонки
+  model.scale.setScalar(scale)
 
-  useRenderLoop().onLoop(() => {
-    scene.rotation.y += 0.002
-  })
+  // центрирование
+  const center = box.getCenter(new Vector3())
+  model.position.sub(center.multiplyScalar(scale))
+
+  scene.add(model)
+})
+
+function updateRenderer() {
+  renderer.setSize(250, 250)
+  renderer.render(scene, camera)
+}
+
+function setRenderer() {
+  if (experience.value) {
+    renderer = new WebGLRenderer({ canvas: experience.value, alpha: true, antialias: true })
+    renderer.setClearColor(0x000000, 0) // прозрачный фон
+    updateRenderer()
+  }
+}
+
+onMounted(() => {
+  setRenderer()
+  loop()
+})
+
+const loop = () => {
+  updateRenderer()
+  requestAnimationFrame(loop)
+}
 </script>
 
 <template>
   <div class="flex items-center justify-center">
-    <div class="w-[400px] h-[400px]">
-      <ClientOnly>
-        <TresCanvas alpha>
-          <TresPerspectiveCamera :position="[0, 0, cameraZ * 2]" :fov="45" />
-          <TresAmbientLight :intensity="0.8" />
-          <TresDirectionalLight :position="[5, 10, 7.5]" :intensity="1" />
-
-          <primitive :object="scene" />
-
-          <OrbitControls />
-        </TresCanvas>
-      </ClientOnly>
-
+    <div class="w-[250px] h-[250px]">
+      <canvas ref="experience" />
     </div>
-
-
   </div>
-
 </template>
