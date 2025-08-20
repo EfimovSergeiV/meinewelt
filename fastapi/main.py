@@ -64,6 +64,7 @@ async def chat_endpoint(websocket: WebSocket):
     await websocket.accept()
     clients.append(websocket)
     # сразу отправляем текущую историю
+    await websocket.send_json({"connection_id": id(websocket)})
     await websocket.send_json(messages)
 
     try:
