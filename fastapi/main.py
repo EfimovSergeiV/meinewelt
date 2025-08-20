@@ -69,16 +69,17 @@ async def chat_endpoint(websocket: WebSocket):
     try:
         while True:
             data = await websocket.receive_text()
-            messages.append({
+            new_message = {
                 "text": data,
                 "time": datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-            })
+            }
+            messages.append(new_message)
             if len(messages) > 10:
                 messages.pop(0)
 
             # рассылаем всем клиентам
             for client in clients:
-                await client.send_json(data)
+                await client.send_json(new_message)
     except:
         clients.remove(websocket)
 
