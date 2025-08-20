@@ -8,6 +8,8 @@ const messages = ref([]); // массив сообщений [{text, time}]
 const message = ref("");
 let socket = null;
 
+const connectionID = ref(null);
+
 const connectWebSocket = () => {
   socket = new WebSocket(wsUrl);
 
@@ -18,8 +20,27 @@ const connectWebSocket = () => {
   socket.onmessage = (event) => {
 
     try {
-      const data = JSON.parse(event.data); // [{text, time}, ...]
-      messages.value = data;
+      const data = JSON.parse(event.data)
+
+      // Проверяем, есть ли connection_id
+      if (data.connection_id) {
+        connectionID.value = data.connection_id;
+      } else {
+        if (Array.isArray(data)) {
+          messages.value = data;
+        } else {
+          messages.value.push(data);
+
+          // Ограничиваем количество сообщений до 6 последних
+          if (messages.value.length > 5) {
+            messages.value.shift();
+          }
+        }        
+      }
+
+      /// Если массив объектов, тогда message = data, иначе message.push(data)
+
+
     } catch (e) {
       console.error("Ошибка парсинга:", e);
     }
@@ -51,26 +72,30 @@ onBeforeUnmount(() => socket?.close());
       <!-- Список сообщений -->
        <div class="">
         <div class="rounded-lg shadow-inner mb-4 grid grid-cols-1 gap-2">
-          
 
+          <!-- Отображаем только 3 последних -->
           <div v-for="(msg, i) in messages" :key="i" class="">
             <!-- проверяем кратность двум -->
-             <div v-if="i % 2 === 0" class="flex justify-end">
+             <div v-if="connectionID === msg.client_id" class="flex justify-end">
               <div class="mb-2 p-2 rounded-lg bg-blue-100/50 w-[500px]">
-                <div class="text-sm text-gray-300">{{ msg.time }}</div>
-                <div class="text-white">{{ msg.text }}</div>
+                <div class="flex items-center justify-between border-b border-gray-300/50 pb-1 mb-1">
+                  <div class="text-xs text-gray-300">{{ msg.client_id }}</div>
+                  <div class="text-xs text-gray-300 font-semibold">{{ msg.time }}</div>
+                </div>
+
+                <div class="text-white text-sm">{{ msg.text }}</div>
               </div>                 
              </div>
              <div v-else>
               <div class="mb-2 p-2 rounded-lg bg-green-100/50 w-[500px]">
-                <div class="text-sm text-gray-300">{{ msg.time }}</div>
-                <div class="text-white">{{ msg.text }}</div>
+                <div class="flex items-center justify-between border-b border-gray-300/50 pb-1 mb-1">
+                  <div class="text-xs text-gray-300">{{ msg.client_id }}</div>
+                  <div class="text-xs text-gray-300 font-semibold">{{ msg.time }}</div>
+                </div>
+                <div class="text-white text-sm">{{ msg.text }}</div>
               </div>
              </div>
           </div>
-
-
-
 
         </div>        
        </div>
@@ -79,6 +104,7 @@ onBeforeUnmount(() => socket?.close());
       <!-- Поле ввода -->
       <div class=" ">
         <div>
+          <p class="text-white text-xs pb-1">con_id: {{ connectionID }}</p>
           <textarea
             v-model="message"
             rows="3"
