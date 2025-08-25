@@ -47,7 +47,7 @@
     //   easing: 'linear',
     //   delay: (context) => {
     //     return context.dataIndex * 5;
-    //   },
+    //   }, DESKTOP-UULPIQ7
     // },
     scales: {
       x: { title: { display: true, text: 'Time' } },
