@@ -70,7 +70,7 @@ onBeforeUnmount(() => socket?.close());
     <div class="grid grid-cols-1 gap-4">
 
       <!-- Список сообщений -->
-       <div class="">
+      <div class="">
         <div class="rounded-lg shadow-inner mb-4 grid grid-cols-1 gap-2">
 
           <!-- Отображаем только 3 последних -->
@@ -98,7 +98,7 @@ onBeforeUnmount(() => socket?.close());
           </div>
 
         </div>        
-       </div>
+      </div>
 
 
       <!-- Поле ввода -->
