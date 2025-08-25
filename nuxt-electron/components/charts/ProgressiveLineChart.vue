@@ -82,7 +82,7 @@ const chartRef = ref(null)
 
 const wsState = ref('')
 
-const wsUrl = `ws://localhost:8000/ws`
+const wsUrl = `wss://api.meinewelt.ru/ws`
 let socket = null
 
 const debug = ref('')

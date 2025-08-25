@@ -1,5 +1,8 @@
 # Nuxt 3 + Electron пример
 
+```zsh
+# TMP: сетевой принтер DESKTOP-UULPIQ7
+```
 
 ### Установка и сборка
 

@@ -59,7 +59,7 @@
   let sendInterval = null
 
   onMounted(() => {
-    ws = new WebSocket('ws://localhost:8000/ws')
+    ws = new WebSocket('wss://api.meinewelt.ru/ws')
 
     ws.onopen = () => {
       console.log('Connected to WebSocket')
