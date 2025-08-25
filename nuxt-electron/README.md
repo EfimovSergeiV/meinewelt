@@ -36,6 +36,7 @@ npx tailwindcss-cli init
 npm i vue-chartjs chart.js
 
 
-
+# TreeJS
+npm install three @tresjs/nuxt
 
 ```

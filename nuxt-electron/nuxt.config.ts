@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   
   modules: [
     '@nuxtjs/tailwindcss',
+    '@tresjs/nuxt',
     ['nuxt-electron', {
       build: [
         {
