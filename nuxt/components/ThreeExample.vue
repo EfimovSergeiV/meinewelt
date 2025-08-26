@@ -123,16 +123,16 @@
 
     <div class="space-x-2">
       <button 
-        class="px-4 py-2 bg-blue-500 text-white rounded" 
+        class="px-4 py-2 w-44 bg-blue-500 text-white rounded" 
         @click="autoRotate = true"
       >
         Автовращение
       </button>
       <button 
-        class="px-4 py-2 bg-green-500 text-white rounded" 
+        class="px-4 py-2 w-44 bg-green-500 text-white rounded" 
         @click="rotateBy60"
       >
-        Повернуть на 60°
+        Повернуть
       </button>
     </div>
   </div>
