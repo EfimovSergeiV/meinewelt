@@ -1,3 +1,7 @@
+<script setup lang="ts">
+  const counter = useCounterStore()
+</script>
+
 <template>
   <div class="container mx-auto px-4 py-2">
 
@@ -10,7 +14,11 @@
         <p class="text-gray-300">electron 29.3.0</p>        
       </div>
 
-
+      <p class="text-white">Count: {{ counter.count }}</p>
+      <div class="">
+        <button class="bg-blue-500/60 text-white px-4 py-2 rounded mr-2" @click="counter.increment">Increment</button>
+        <button class="bg-red-500/60 text-white px-4 py-2 rounded" @click="counter.decrement">Decrement</button>      
+      </div>
     </div>
 
 
