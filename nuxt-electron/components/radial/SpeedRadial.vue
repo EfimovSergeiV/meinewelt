@@ -19,9 +19,9 @@
         data: [percent.value, 100 - percent.value],
         backgroundColor: ['#155dfc', '#e5e7eb'],
         borderWidth: 0,
-        circumference: 360, // полный круг
-        rotation: 180,       // начало внизу
-        cutout: '60%'
+        circumference: 360,
+        rotation: 180,
+        cutout: '95%'
       }
     ]
   }))
