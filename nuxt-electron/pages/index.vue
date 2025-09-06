@@ -1,5 +1,5 @@
 <script setup>
-  import SpeedRadial from '~/components/radial/SpeedRadial.vue';
+  import SpeedRadial from '~/components/radial/SpeedRadial.vue'
   const counter = useCounterStore()
 
   import PrimaryButton from '~/components/btn/PrimaryButton.vue'
