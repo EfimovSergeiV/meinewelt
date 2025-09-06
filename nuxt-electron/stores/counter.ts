@@ -1,6 +1,7 @@
 export const useCounterStore = defineStore('counter', {
   state: () => ({
-    count: 0
+    count: 0,
+    valueKw: 0
   }),
   actions: {
     increment() {
@@ -8,6 +9,12 @@ export const useCounterStore = defineStore('counter', {
     },
     decrement() {
       this.count--
+    },
+    incKw() {
+      this.valueKw += 5
+    },
+    decKw() {
+      this.valueKw -= 5
     }
   }
 })
