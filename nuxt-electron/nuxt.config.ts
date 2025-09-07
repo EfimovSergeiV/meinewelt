@@ -35,7 +35,7 @@ export default defineNuxtConfig({
   css: [
     // '~/assets/css/tailwind.css',
     '~/assets/main.css',
-    // '@mdi/font/css/materialdesignicons.min.css',
+    '@mdi/font/css/materialdesignicons.min.css',
   ],
 
   // colorMode config moved to modules array above

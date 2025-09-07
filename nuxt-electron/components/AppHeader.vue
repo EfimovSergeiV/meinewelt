@@ -19,7 +19,7 @@
         <nuxt-link :to="{ name: 'about' }"><PrimaryButton :text="`About`" :width="`w-36`" /></nuxt-link>
 
 
-        <div id="color-mode" class="BUG">
+        <div id="color-mode" class="">
           <PrimaryButton :text="`Оформление по умолчанию`" :width="`w-80`" v-if="$colorMode.preference === 'system'" @click="$colorMode.preference = 'dark'" class="" />
           <PrimaryButton :text="`Ночное оформление`" :width="`w-80`" v-if="$colorMode.preference === 'dark'" @click="$colorMode.preference = 'light'" class="" />
           <PrimaryButton :text="`Дневное оформление`" :width="`w-80`" v-if="$colorMode.preference === 'light'" @click="$colorMode.preference = 'system'" class="" />

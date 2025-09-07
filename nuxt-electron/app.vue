@@ -1,5 +1,6 @@
 <script setup>
-  import SpeedRadial from '~/components/radial/SpeedRadial.vue'
+  import CircleControl from '~/components/radial/CircleControl.vue'
+  import SemicircleControl from './components/radial/SemicircleControl.vue'
   import PrimaryButton from './components/btn/PrimaryButton.vue'
   import DangerButton from './components/btn/DangerButton.vue'
   
@@ -46,7 +47,7 @@
                       <DangerButton :text="`- 5 Kw`" :width="`w-36`" @click="counter.decKw" />     
                     </div>
 
-                    <SpeedRadial />
+                    <CircleControl />
 
                     <div class="py-8 flex flex-col gap-6">
                       <PrimaryButton :text="`+ 10 Kw`" :width="`w-36`" @click="counter.valueKw += 10" />
@@ -66,7 +67,7 @@
                       <DangerButton :text="`- 5 Kw`" :width="`w-36`" @click="counter.decKw" />     
                     </div>
 
-                    <SpeedRadial />
+                    <SemicircleControl />
 
                     <div class="py-8 flex flex-col gap-6">
                       <PrimaryButton :text="`+ 10 Kw`" :width="`w-36`" @click="counter.valueKw += 10" />

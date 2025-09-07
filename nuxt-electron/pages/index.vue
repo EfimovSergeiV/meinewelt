@@ -1,5 +1,5 @@
 <script setup>
-  import SpeedRadial from '~/components/radial/SpeedRadial.vue'
+  import CircleControl from '~/components/radial/CircleControl.vue'
   const counter = useCounterStore()
 
   import PrimaryButton from '~/components/btn/PrimaryButton.vue'
@@ -17,7 +17,7 @@
         <DangerButton :text="`- 5 Kw`" :width="`w-36`" @click="counter.decKw" />     
       </div>
 
-      <SpeedRadial />
+      <CircleControl />
 
       <div class="py-8 flex flex-col gap-6">
         <PrimaryButton :text="`+ 10 Kw`" :width="`w-36`" @click="counter.valueKw += 10" />
