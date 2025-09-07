@@ -28,7 +28,7 @@
 
     <div class="bg-fixed bg-no-repeat bg-cover bg-center bg-[url('movie-bg.webp')] dark:bg-[url('movie-bg.webp')] min-h-screen">
 
-      <div class="flex flex-col justify-between min-h-screen">
+      <div class="flex flex-col justify-between min-h-screen bg-gray-100/50 dark:bg-gray-900/50 backdrop-blur-sm">
         <AppHeader />
         <NuxtPage />
 
@@ -42,15 +42,15 @@
                   <div class="flex gap-8 items-center mt-20">
                     
                     <div class="py-8 flex flex-col gap-6">
-                      <PrimaryButton :text="`+ 5 Kw`" @click="counter.incKw" />
-                      <DangerButton :text="`- 5 Kw`" @click="counter.decKw" />     
+                      <PrimaryButton :text="`+ 5 Kw`" :width="`w-36`" @click="counter.incKw" />
+                      <DangerButton :text="`- 5 Kw`" :width="`w-36`" @click="counter.decKw" />     
                     </div>
 
                     <SpeedRadial />
 
                     <div class="py-8 flex flex-col gap-6">
-                      <PrimaryButton :text="`+ 10 Kw`" @click="counter.valueKw += 10" />
-                      <DangerButton :text="`- 10 Kw`" @click="counter.valueKw -= 10" />     
+                      <PrimaryButton :text="`+ 10 Kw`" :width="`w-36`" @click="counter.valueKw += 10" />
+                      <DangerButton :text="`- 10 Kw`" :width="`w-36`" @click="counter.valueKw -= 10" />     
                     </div>
 
                   </div>
@@ -62,15 +62,15 @@
                   <div class="flex gap-8 items-center mt-20">
                     
                     <div class="py-8 flex flex-col gap-6">
-                      <PrimaryButton :text="`+ 5 Kw`" @click="counter.incKw" />
-                      <DangerButton :text="`- 5 Kw`" @click="counter.decKw" />     
+                      <PrimaryButton :text="`+ 5 Kw`" :width="`w-36`" @click="counter.incKw" />
+                      <DangerButton :text="`- 5 Kw`" :width="`w-36`" @click="counter.decKw" />     
                     </div>
 
                     <SpeedRadial />
 
                     <div class="py-8 flex flex-col gap-6">
-                      <PrimaryButton :text="`+ 10 Kw`" @click="counter.valueKw += 10" />
-                      <DangerButton :text="`- 10 Kw`" @click="counter.valueKw -= 10" />     
+                      <PrimaryButton :text="`+ 10 Kw`" :width="`w-36`" @click="counter.valueKw += 10" />
+                      <DangerButton :text="`- 10 Kw`" :width="`w-36`" @click="counter.valueKw -= 10" />     
                     </div>
 
                   </div>

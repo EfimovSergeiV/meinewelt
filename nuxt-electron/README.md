@@ -1,9 +1,5 @@
 # Nuxt 3 + Electron пример
 
-```zsh
-# TMP: сетевой принтер DESKTOP-UULPIQ7
-```
-
 ### Установка и сборка
 
 ```zsh
@@ -38,13 +34,5 @@ npm i vue-chartjs chart.js
 
 # TreeJS
 npm install three @tresjs/nuxt
-
-```
-
-
-```zsh
-# Добавить даркмод 
-
-# Сделать так, что бы компонент не моргал при смене роута на некоторых страницах
 
 ```

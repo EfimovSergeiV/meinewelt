@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   
   modules: [
     '@nuxtjs/tailwindcss',
+    ['@nuxtjs/color-mode', { classSuffix: '' }],
     '@tresjs/nuxt',
     '@pinia/nuxt',
     ['nuxt-electron', {
@@ -36,6 +37,8 @@ export default defineNuxtConfig({
     '~/assets/main.css',
     // '@mdi/font/css/materialdesignicons.min.css',
   ],
+
+  // colorMode config moved to modules array above
 
   ssr: false, // #43
 })
