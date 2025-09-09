@@ -37,7 +37,7 @@
 <template>
   <div class="flex flex-col items-center relative select-none">
 
-    <Doughnut :data="chartData" :options="chartOptions" class="w-[250px] h-[250px] pb-4" />
+    <Doughnut :data="chartData" :options="chartOptions" class="w-[180px] h-[180px]" />
     <div class="text-white absolute bottom-10 text-4xl font-bold">{{ counter.valueKw }} Kw</div>
 
   </div>

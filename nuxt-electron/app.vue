@@ -37,7 +37,7 @@
         <div>
           <div v-if="route.name !== 'three'" class="container mx-auto px-4 py-2">
             
-            <div class="flex items-center justify-between ">
+            <div class="flex items-end justify-between ">
               <div class="c">
                 <div class="">
                   <div class="flex gap-8 items-center mt-20">
@@ -62,17 +62,9 @@
                 <div class="">
                   <div class="flex gap-8 items-center mt-20">
                     
-                    <div class="py-8 flex flex-col gap-6">
-                      <PrimaryButton :text="`+ 5 Kw`" :width="`w-36`" @click="counter.incKw" />
-                      <DangerButton :text="`- 5 Kw`" :width="`w-36`" @click="counter.decKw" />     
-                    </div>
-
                     <SemicircleControl />
-
-                    <div class="py-8 flex flex-col gap-6">
-                      <PrimaryButton :text="`+ 10 Kw`" :width="`w-36`" @click="counter.valueKw += 10" />
-                      <DangerButton :text="`- 10 Kw`" :width="`w-36`" @click="counter.valueKw -= 10" />     
-                    </div>
+                    <SemicircleControl />
+                    <SemicircleControl />
 
                   </div>
                 </div>
