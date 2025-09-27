@@ -110,7 +110,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      baseURL: process.env.BASE_URL || cfg.BASE_URL,
+      baseURL: cfg.BASE_URL,
     },
   },
 })
