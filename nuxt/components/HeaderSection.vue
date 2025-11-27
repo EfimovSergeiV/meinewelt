@@ -13,11 +13,11 @@
       
       <div class="">
         <nuxt-link :to="{ name: 'index' }">
-          <img src="/mw-logo.webp" class="h-12">          
+          <img src="/mw-logo.webp" class="h-16">          
         </nuxt-link>
       </div>
 
-      <div class="flex flex-row items-center gap-2 md:gap-4 ">
+      <div class="flex flex-row items-center gap-2 md:gap-4">
         <div>
           <nuxt-link v-if="route.name === 'index'" :to="{ name: 'index' }" class="text-red-700 font-semibold italic uppercase text-xs md:text-lg">INX</nuxt-link>
           <nuxt-link v-else :to="{ name: 'index' }" class="font-semibold italic uppercase text-xs md:text-lg">INX</nuxt-link>
