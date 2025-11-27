@@ -66,7 +66,13 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@vite-pwa/nuxt',
     '@tresjs/nuxt',
+    'nuxt-tiptap-editor',
   ],
+
+  tiptap: {
+    prefix: 'Tiptap', //prefix for Tiptap imports, composables not included
+  },
+
   css: [
     '~/assets/css/tailwind.css',
     '~/assets/css/main.css',

@@ -1,6 +1,7 @@
 <script setup>
 import EditorSection from '~/components/EditorSection.vue';
 import ThreeExample from '~/components/ThreeExample.vue';
+import TiptapEditor from '~/components/TiptapEditor.vue';
 
 
 
@@ -19,8 +20,8 @@ import ThreeExample from '~/components/ThreeExample.vue';
     </div>
 
 
-    <div class="">
-      <EditorSection />
+    <div class="bg-gray-100 px-4 py-8 mt-4 rounded-md">
+      <TiptapEditor />
     </div>
 
   
