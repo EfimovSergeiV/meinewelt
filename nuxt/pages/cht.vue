@@ -1,4 +1,5 @@
 <script setup>
+import EditorSection from '~/components/EditorSection.vue';
 import ThreeExample from '~/components/ThreeExample.vue';
 
 
@@ -15,6 +16,11 @@ import ThreeExample from '~/components/ThreeExample.vue';
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <SocketChat />
       <ThreeExample />
+    </div>
+
+
+    <div class="">
+      <EditorSection />
     </div>
 
   
