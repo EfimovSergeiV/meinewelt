@@ -159,7 +159,7 @@
 
     <div class="mt-4">
       <p class="text-white text-sm">VIEW:</p>
-      <div class="text-white rounded bg-gray-800/70 backdrop-blur-md p-2">
+      <div class="text-white rounded bg-gray-800/70 backdrop-blur-md border border-gray-600/70 p-2">
         <div v-html="editor?.getHTML()" />
       </div>
     </div>
@@ -167,14 +167,14 @@
 
     <div class="mt-4">
       <p class="text-white text-sm">JSON:</p>
-      <pre class="text-white text-xs bg-gray-800/70 p-2 backdrop-blur-md rounded">
+      <pre class="text-white text-xs bg-gray-800/70 p-2 backdrop-blur-md border border-gray-600/70 rounded">
         {{ editor?.getJSON() }}
       </pre>
     </div>
 
     <div class="mt-4">
       <p class="text-white text-sm">HTML:</p>
-      <pre class="text-white text-xs bg-gray-800/70 p-2 backdrop-blur-md rounded">
+      <pre class="text-white text-xs bg-gray-800/70 p-2 backdrop-blur-md border border-gray-600/70 rounded">
         <code>{{ editor?.getHTML() }}</code>
       </pre>
     </div>
