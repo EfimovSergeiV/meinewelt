@@ -5,6 +5,20 @@
     <div class="bg-gray-100 px-4 py-8 mt-4 rounded-md grid grid-cols-1 gap-1">
       <div v-if="editor" class="flex flex-wrap gap-1 rounded-sm border border-gray-300 px-0.5 py-0.5">
         <button
+          class="bg-red-500 hover:bg-red-600 px-2 text-white rounded-sm"
+          :disabled="!editor.can().chain().focus().undo().run()"
+          @click="editor.chain().focus().undo().run()"
+        >
+          назад
+        </button>
+        <button
+          class="bg-red-500 hover:bg-red-600 px-2 text-white rounded-sm"
+          :disabled="!editor.can().chain().focus().redo().run()"
+          @click="editor.chain().focus().redo().run()"
+        >
+          вперди
+        </button>
+        <button
           class="bg-blue-500 hover:bg-blue-600 px-2 text-white rounded-sm"
           :class="{ 'is-active': editor.isActive('bold') }"
           :disabled="!editor.can().chain().focus().toggleBold().run()"
@@ -125,29 +139,16 @@
           blockquote
         </button>
         <button 
-          class="bg-red-500 hover:bg-red-600 px-2 text-white rounded-sm"
+          class="bg-blue-500 hover:bg-blue-600 px-2 text-white rounded-sm"
           @click="editor.chain().focus().setHorizontalRule().run()">
           horizontal rule
         </button>
         <button
-          class="bg-red-500 hover:bg-red-600 px-2 text-white rounded-sm"
+          class="bg-blue-500 hover:bg-blue-600 px-2 text-white rounded-sm"
           @click="editor.chain().focus().setHardBreak().run()">
           hard break
         </button>
-        <button
-          class="bg-blue-500 hover:bg-blue-600 px-2 text-white rounded-sm"
-          :disabled="!editor.can().chain().focus().undo().run()"
-          @click="editor.chain().focus().undo().run()"
-        >
-          назад
-        </button>
-        <button
-          class="bg-blue-500 hover:bg-blue-600 px-2 text-white rounded-sm"
-          :disabled="!editor.can().chain().focus().redo().run()"
-          @click="editor.chain().focus().redo().run()"
-        >
-          вперди
-        </button>
+
       </div>
 
       <TiptapEditorContent :editor="editor" class="editor" />
@@ -157,23 +158,23 @@
 
 
     <div class="mt-4">
-      <p class="text-white">HTML:</p>
-      <div class="text-white rounded">
+      <p class="text-white text-sm">VIEW:</p>
+      <div class="text-white rounded bg-gray-800/70 backdrop-blur-md p-2">
         <div v-html="editor?.getHTML()" />
       </div>
     </div>
 
 
     <div class="mt-4">
-      <p class="text-white text-sm">SOURCE JSON:</p>
-      <pre class="text-white text-xs bg-gray-800 p-2 rounded">
+      <p class="text-white text-sm">JSON:</p>
+      <pre class="text-white text-xs bg-gray-800/70 p-2 backdrop-blur-md rounded">
         {{ editor?.getJSON() }}
       </pre>
     </div>
 
     <div class="mt-4">
-      <p class="text-white text-sm">SOURCE HTML:</p>
-      <pre class="text-white text-xs bg-gray-800 p-2 rounded">
+      <p class="text-white text-sm">HTML:</p>
+      <pre class="text-white text-xs bg-gray-800/70 p-2 backdrop-blur-md rounded">
         <code>{{ editor?.getHTML() }}</code>
       </pre>
     </div>
