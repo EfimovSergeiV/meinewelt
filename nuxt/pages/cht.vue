@@ -1,5 +1,4 @@
 <script setup>
-import EditorSection from '~/components/EditorSection.vue';
 import ThreeExample from '~/components/ThreeExample.vue';
 import TiptapEditor from '~/components/TiptapEditor.vue';
 

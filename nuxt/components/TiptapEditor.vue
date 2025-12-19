@@ -2,29 +2,29 @@
   <div>
     <div v-if="editor">
       <button
-        :disabled="!editor.can().chain().focus().toggleBold().run()"
         :class="{ 'is-active': editor.isActive('bold') }"
+        :disabled="!editor.can().chain().focus().toggleBold().run()"
         @click="editor.chain().focus().toggleBold().run()"
       >
         bold
       </button>
       <button
-        :disabled="!editor.can().chain().focus().toggleItalic().run()"
         :class="{ 'is-active': editor.isActive('italic') }"
+        :disabled="!editor.can().chain().focus().toggleItalic().run()"
         @click="editor.chain().focus().toggleItalic().run()"
       >
         italic
       </button>
       <button
-        :disabled="!editor.can().chain().focus().toggleStrike().run()"
         :class="{ 'is-active': editor.isActive('strike') }"
+        :disabled="!editor.can().chain().focus().toggleStrike().run()"
         @click="editor.chain().focus().toggleStrike().run()"
       >
         strike
       </button>
       <button
-        :disabled="!editor.can().chain().focus().toggleCode().run()"
         :class="{ 'is-active': editor.isActive('code') }"
+        :disabled="!editor.can().chain().focus().toggleCode().run()"
         @click="editor.chain().focus().toggleCode().run()"
       >
         code
@@ -42,62 +42,38 @@
         paragraph
       </button>
       <button
-        :class="{
-          'is-active': editor.isActive('heading', { level: 1 }),
-        }"
-        @click="
-          editor.chain().focus().toggleHeading({ level: 1 }).run()
-        "
+        :class="{ 'is-active': editor.isActive('heading', { level: 1 }) }"
+        @click="editor.chain().focus().toggleHeading({ level: 1 }).run()"
       >
         h1
       </button>
       <button
-        :class="{
-          'is-active': editor.isActive('heading', { level: 2 }),
-        }"
-        @click="
-          editor.chain().focus().toggleHeading({ level: 2 }).run()
-        "
+        :class="{ 'is-active': editor.isActive('heading', { level: 2 }) }"
+        @click="editor.chain().focus().toggleHeading({ level: 2 }).run()"
       >
         h2
       </button>
       <button
-        :class="{
-          'is-active': editor.isActive('heading', { level: 3 }),
-        }"
-        @click="
-          editor.chain().focus().toggleHeading({ level: 3 }).run()
-        "
+        :class="{ 'is-active': editor.isActive('heading', { level: 3 }) }"
+        @click="editor.chain().focus().toggleHeading({ level: 3 }).run()"
       >
         h3
       </button>
       <button
-        :class="{
-          'is-active': editor.isActive('heading', { level: 4 }),
-        }"
-        @click="
-          editor.chain().focus().toggleHeading({ level: 4 }).run()
-        "
+        :class="{ 'is-active': editor.isActive('heading', { level: 4 }) }"
+        @click="editor.chain().focus().toggleHeading({ level: 4 }).run()"
       >
         h4
       </button>
       <button
-        :class="{
-          'is-active': editor.isActive('heading', { level: 5 }),
-        }"
-        @click="
-          editor.chain().focus().toggleHeading({ level: 5 }).run()
-        "
+        :class="{ 'is-active': editor.isActive('heading', { level: 5 }) }"
+        @click="editor.chain().focus().toggleHeading({ level: 5 }).run()"
       >
         h5
       </button>
       <button
-        :class="{
-          'is-active': editor.isActive('heading', { level: 6 }),
-        }"
-        @click="
-          editor.chain().focus().toggleHeading({ level: 6 }).run()
-        "
+        :class="{ 'is-active': editor.isActive('heading', { level: 6 }) }"
+        @click="editor.chain().focus().toggleHeading({ level: 6 }).run()"
       >
         h6
       </button>
@@ -144,28 +120,19 @@
         redo
       </button>
     </div>
+
     <TiptapEditorContent :editor="editor" />
+  
   </div>
 </template>
 
 <script setup>
-const editor = useEditor({
-  content: '<p>I\'m running Tiptap with Vue.js. 🎉</p>',
-  extensions: [TiptapStarterKit],
-})
-</script>
+  const editor = useEditor({
+    content: "<p>I'm running Tiptap with Vue.js. 🎉</p>",
+    extensions: [TiptapStarterKit],
+  });
 
-<style scoped>
-button {
-    border-radius: 3px;
-    background-image: linear-gradient(
-        to top,
-        rgb(207, 207, 207) 16%,
-        rgb(252, 252, 252) 79%
-    );
-    padding: 3px;
-    border: 1px solid #000;
-    color: black;
-    text-decoration: none;
-}
-</style>
+  onBeforeUnmount(() => {
+    unref(editor).destroy();
+  });
+</script>
