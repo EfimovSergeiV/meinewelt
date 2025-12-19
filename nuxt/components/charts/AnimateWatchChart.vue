@@ -124,7 +124,9 @@
       <p class="text-black/80 text-sm">Live data</p>
     </div>
     <div>
-      <Line :data="chartData" :options="chartOptions" />
+      <ClientOnly>
+        <Line :data="chartData" :options="chartOptions" />        
+      </ClientOnly>
     </div>
   </div>
 </template>

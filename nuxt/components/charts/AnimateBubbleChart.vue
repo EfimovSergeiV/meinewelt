@@ -110,7 +110,9 @@
       <p class="text-black/80 text-sm">Bubble chart</p>
     </div>
     <div class="">
-      <Bubble ref="chartRef" :data="chartData" :options="chartOptions" />
+      <ClientOnly>
+        <Bubble ref="chartRef" :data="chartData" :options="chartOptions" />        
+      </ClientOnly>
     </div>
 
   </div>

@@ -96,7 +96,9 @@
       <p class="text-black/80 text-sm">Simple chart</p>
     </div>
     <div class="">
-      <Bar ref="chartRef" :data="chartData" :options="chartOptions" />      
+      <ClientOnly>
+        <Bar ref="chartRef" :data="chartData" :options="chartOptions" />
+      </ClientOnly>
     </div>
 
   </div>

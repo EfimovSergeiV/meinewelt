@@ -59,9 +59,6 @@ const chartOptions = {
       position: 'top',
     },
   },
-  interaction: {
-    intersect: false,
-  },
   scales: {
     y: {
       type: 'linear',
@@ -134,7 +131,9 @@ onUnmounted(() => socket?.close())
       <p class="text-black/80 text-sm">Multi-Axis Line chart 2</p>
     </div>
     <div class="h-full">
-      <Line ref="chartRef" :data="chartData" :options="chartOptions" />
+      <ClientOnly>
+        <Line ref="chartRef" :data="chartData" :options="chartOptions" />
+      </ClientOnly>
     </div>
   </div>
 </template>
