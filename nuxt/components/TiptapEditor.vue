@@ -136,11 +136,93 @@
       </pre>
     </div>
 
+    <div class="mt-4">
+      <p class="text-white">SOURCE:</p>
+      <pre class="text-white text-xs bg-gray-800 p-2 rounded">
+        <code>{{ output }}</code>
+      </pre>
+    </div>
+
+
   
   </div>
 </template>
 
-<script setup>
+<script>
+// Option 1: Browser + server-side
+import Bold from '@tiptap/extension-bold'
+// Option 2: Browser-only (lightweight)
+import { generateHTML } from '@tiptap/core'
+import Document from '@tiptap/extension-document'
+import Paragraph from '@tiptap/extension-paragraph'
+import Text from '@tiptap/extension-text'
+
+
+const json = {
+  type: 'doc',
+  content: [
+    {
+      type: 'paragraph',
+      content: [
+        {
+          type: 'text',
+          text: 'Example ',
+        },
+        {
+          type: 'text',
+          marks: [
+            {
+              type: 'bold',
+            },
+          ],
+          text: 'Text',
+        },
+      ],
+    },
+  ],
+}
+
+export default {
+  computed: {
+    output() {
+      return generateHTML(json, [
+        Document,
+        Paragraph,
+        Text,
+        Bold,
+      ])
+    },
+  },
+}
+</script>
+
+
+<!-- <script setup>
+  import { generateHTML } from '@tiptap/core'
+  import Bold from '@tiptap/extension-bold'
+  // Option 2: Browser-only (lightweight)
+  // import { generateHTML } from '@tiptap/core'
+  import Document from '@tiptap/extension-document'
+  import Paragraph from '@tiptap/extension-paragraph'
+  import Text from '@tiptap/extension-text'
+
+
+
+  // Generate HTML from JSON
+  generateHTML(
+    {
+      type: 'doc',
+      content: [{ type: 'paragraph', content: [{ type: 'text', text: 'On the browser only' }] }],
+    },
+    [
+      Document,
+      Paragraph,
+      Text,
+      Bold,
+      // other extensions …
+    ],
+  )
+
   const editor = useEditor({
     content: "<p>I'm running Tiptap with Vue.js. 🎉</p>",
     extensions: [TiptapStarterKit],
@@ -149,4 +231,4 @@
   onBeforeUnmount(() => {
     unref(editor).destroy();
   });
-</script>
+</script> -->
