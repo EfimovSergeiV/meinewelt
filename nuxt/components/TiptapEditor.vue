@@ -132,27 +132,27 @@
 
     <div class="mt-4">
       <p class="text-white">HTML:</p>
-      <div class="text-white text-xs bg-gray-800 p-2 rounded">
+      <div class="text-white rounded">
         <div v-html="editor?.getHTML()" />
       </div>
     </div>
 
 
     <div class="mt-4">
-      <p class="text-white">SOURCE JSON:</p>
+      <p class="text-white text-sm">SOURCE JSON:</p>
       <pre class="text-white text-xs bg-gray-800 p-2 rounded">
         {{ editor?.getJSON() }}
       </pre>
     </div>
 
     <div class="mt-4">
-      <p class="text-white">SOURCE HTML:</p>
+      <p class="text-white text-sm">SOURCE HTML:</p>
       <pre class="text-white text-xs bg-gray-800 p-2 rounded">
         <code>{{ editor?.getHTML() }}</code>
       </pre>
     </div>
 
-    <p class="text-xs text-white mt-2">{{ json }}</p>
+    <p class="text-xs text-white mt-2">const = {{ json }}</p>
   
   </div>
 </template>
