@@ -19,7 +19,7 @@ import TiptapEditor from '~/components/TiptapEditor.vue';
     </div>
 
 
-    <div class="bg-gray-100 px-4 py-8 mt-4 rounded-md">
+    <div class="">
       <TiptapEditor />
     </div>
 
