@@ -148,52 +148,76 @@
   </div>
 </template>
 
-<script>
-// Option 1: Browser + server-side
-import Bold from '@tiptap/extension-bold'
-// Option 2: Browser-only (lightweight)
-import { generateHTML } from '@tiptap/core'
-import Document from '@tiptap/extension-document'
-import Paragraph from '@tiptap/extension-paragraph'
-import Text from '@tiptap/extension-text'
+<script setup>
+  import { onMounted, ref } from 'vue'
+  import { generateHTML } from '@tiptap/core'
+  import Document from '@tiptap/extension-document'
+  import Paragraph from '@tiptap/extension-paragraph'
+  import Text from '@tiptap/extension-text'
+  import Bold from '@tiptap/extension-bold'
 
 
-const json = {
-  type: 'doc',
-  content: [
+
+  // Generate HTML from JSON
+  generateHTML(
     {
-      type: 'paragraph',
-      content: [
-        {
-          type: 'text',
-          text: 'Example ',
-        },
-        {
-          type: 'text',
-          marks: [
-            {
-              type: 'bold',
-            },
-          ],
-          text: 'Text',
-        },
-      ],
+      type: 'doc',
+      content: [{ type: 'paragraph', content: [{ type: 'text', text: 'On the browser only' }] }],
     },
-  ],
-}
+    [
+      Document,
+      Paragraph,
+      Text,
+      Bold,
+      // other extensions …
+    ],
+  )
 
-export default {
-  computed: {
-    output() {
-      return generateHTML(json, [
-        Document,
-        Paragraph,
-        Text,
-        Bold,
-      ])
-    },
-  },
-}
+  const editor = useEditor({
+    content: "<p>I'm running Tiptap with Vue.js. 🎉</p>",
+    extensions: [TiptapStarterKit],
+  });
+
+  onBeforeUnmount(() => {
+    unref(editor).destroy();
+  });
+
+
+
+  const json = {
+    type: 'doc',
+    content: [
+      {
+        type: 'paragraph',
+        content: [
+          {
+            type: 'text',
+            text: 'Example ',
+          },
+          {
+            type: 'text',
+            marks: [
+              {
+                type: 'bold',
+              },
+            ],
+            text: 'Text',
+          },
+        ],
+      },
+    ],
+  }
+
+  const output = ref('')
+
+  onMounted(() => {
+    output.value = generateHTML(json, [
+      Document,
+      Paragraph,
+      Text,
+      Bold,
+    ])
+  })
 </script>
 
 
