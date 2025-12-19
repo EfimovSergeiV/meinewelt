@@ -131,9 +131,9 @@
 
     <div class="mt-4">
       <p class="text-white">SOURCE:</p>
-      <div class="text-white text-xs">
-        src={{ editor.content }}
-      </div>
+      <pre class="text-white text-xs bg-gray-800 p-2 rounded">
+        {{ editor ? JSON.stringify(editor.getJSON(), null, 4) : 'Editor is not initialized' }}
+      </pre>
     </div>
 
   
