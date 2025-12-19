@@ -2,7 +2,7 @@
   <div>
 
     <div class="bg-gray-100 px-4 py-8 mt-4 rounded-md">
-      <div v-if="editor">
+      <div v-if="editor" class="flex gap-4">
         <button
           :class="{ 'is-active': editor.isActive('bold') }"
           :disabled="!editor.can().chain().focus().toggleBold().run()"
@@ -132,127 +132,34 @@
     <div class="mt-4">
       <p class="text-white">SOURCE:</p>
       <pre class="text-white text-xs bg-gray-800 p-2 rounded">
-        {{ editor ? JSON.stringify(editor.getJSON(), null, 4) : 'Editor is not initialized' }}
+        {{ editor?.getJSON() }}
       </pre>
     </div>
 
     <div class="mt-4">
       <p class="text-white">SOURCE:</p>
       <pre class="text-white text-xs bg-gray-800 p-2 rounded">
-        <code>{{ output }}</code>
+        <code>{{ editor?.getHTML() }}</code>
       </pre>
     </div>
 
-
+    <p class="text-xs text-white mt-2">{{ json }}</p>
   
   </div>
 </template>
 
 <script setup>
-  import { onMounted, ref } from 'vue'
-  import { generateHTML } from '@tiptap/core'
-  import Document from '@tiptap/extension-document'
-  import Paragraph from '@tiptap/extension-paragraph'
-  import Text from '@tiptap/extension-text'
-  import Bold from '@tiptap/extension-bold'
+import { onBeforeUnmount } from 'vue'
+import StarterKit from '@tiptap/starter-kit'
 
+const editor = useEditor({
+  content: "<p>I'm running Tiptap with Vue.js. 🎉</p>",
+  extensions: [StarterKit],
+})
 
+const json = computed(() => editor.value?.getJSON())
 
-  // Generate HTML from JSON
-  generateHTML(
-    {
-      type: 'doc',
-      content: [{ type: 'paragraph', content: [{ type: 'text', text: 'On the browser only' }] }],
-    },
-    [
-      Document,
-      Paragraph,
-      Text,
-      Bold,
-      // other extensions …
-    ],
-  )
-
-  const editor = useEditor({
-    content: "<p>I'm running Tiptap with Vue.js. 🎉</p>",
-    extensions: [TiptapStarterKit],
-  });
-
-  onBeforeUnmount(() => {
-    unref(editor).destroy();
-  });
-
-
-
-  const json = {
-    type: 'doc',
-    content: [
-      {
-        type: 'paragraph',
-        content: [
-          {
-            type: 'text',
-            text: 'Example ',
-          },
-          {
-            type: 'text',
-            marks: [
-              {
-                type: 'bold',
-              },
-            ],
-            text: 'Text',
-          },
-        ],
-      },
-    ],
-  }
-
-  const output = ref('')
-
-  onMounted(() => {
-    output.value = generateHTML(json, [
-      Document,
-      Paragraph,
-      Text,
-      Bold,
-    ])
-  })
+onBeforeUnmount(() => {
+  editor?.destroy()
+})
 </script>
-
-
-<!-- <script setup>
-  import { generateHTML } from '@tiptap/core'
-  import Bold from '@tiptap/extension-bold'
-  // Option 2: Browser-only (lightweight)
-  // import { generateHTML } from '@tiptap/core'
-  import Document from '@tiptap/extension-document'
-  import Paragraph from '@tiptap/extension-paragraph'
-  import Text from '@tiptap/extension-text'
-
-
-
-  // Generate HTML from JSON
-  generateHTML(
-    {
-      type: 'doc',
-      content: [{ type: 'paragraph', content: [{ type: 'text', text: 'On the browser only' }] }],
-    },
-    [
-      Document,
-      Paragraph,
-      Text,
-      Bold,
-      // other extensions …
-    ],
-  )
-
-  const editor = useEditor({
-    content: "<p>I'm running Tiptap with Vue.js. 🎉</p>",
-    extensions: [TiptapStarterKit],
-  });
-
-  onBeforeUnmount(() => {
-    unref(editor).destroy();
-  });
-</script> -->
