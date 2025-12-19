@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-v-html -->
 <template>
   <div>
 
@@ -130,14 +131,22 @@
 
 
     <div class="mt-4">
-      <p class="text-white">SOURCE:</p>
+      <p class="text-white">HTML:</p>
+      <div class="text-white text-xs bg-gray-800 p-2 rounded">
+        <div v-html="editor?.getHTML()" />
+      </div>
+    </div>
+
+
+    <div class="mt-4">
+      <p class="text-white">SOURCE JSON:</p>
       <pre class="text-white text-xs bg-gray-800 p-2 rounded">
         {{ editor?.getJSON() }}
       </pre>
     </div>
 
     <div class="mt-4">
-      <p class="text-white">SOURCE:</p>
+      <p class="text-white">SOURCE HTML:</p>
       <pre class="text-white text-xs bg-gray-800 p-2 rounded">
         <code>{{ editor?.getHTML() }}</code>
       </pre>
@@ -147,6 +156,7 @@
   
   </div>
 </template>
+
 
 <script setup>
 import { onBeforeUnmount } from 'vue'
