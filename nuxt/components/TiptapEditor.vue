@@ -148,7 +148,6 @@
           @click="editor?.chain().focus().setHardBreak().run()">
           hard break
         </button>
-
       </div>
 
       <TiptapEditorContent :editor="editor" class="editor" />
@@ -204,7 +203,17 @@ onBeforeUnmount(() => {
 
 <style lang="css">
   .editor .ProseMirror {
-    @apply bg-gray-100 pt-4 text-gray-800 min-h-[200px] rounded outline-none rounded-sm border border-gray-300 px-1 py-0.5;
+    @apply 
+    bg-gray-100
+    text-gray-800
+    border-gray-300
+    pt-4 
+    min-h-[200px] 
+    outline-none
+    rounded-sm
+    border
+    px-1
+    py-0.5;
   }
 
 
