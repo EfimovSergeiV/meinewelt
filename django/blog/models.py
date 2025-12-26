@@ -33,3 +33,15 @@ class ArticleModel(models.Model):
 
     def __str__(self):
         return f"{ self.tech } / { self.title }"
+
+
+class BookmarkModel(models.Model):
+    title = models.CharField(verbose_name="Заголовок", max_length=200)
+    url = models.URLField(verbose_name="URL", max_length=500)
+
+    class Meta:
+        verbose_name = "Закладка"
+        verbose_name_plural = "- 03. Закладки"
+    
+    def __str__(self):
+        return self.title

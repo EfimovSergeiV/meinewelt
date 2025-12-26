@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 from blog.models import *
 
 
@@ -15,6 +16,14 @@ class TechAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.register(ArticleModel)
+@admin.register(BookmarkModel)
+class BookmarkAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'clickable_url',)
+    list_display_links = ('id', 'title',)
+
+    def clickable_url(self, obj):
+        return mark_safe(f'<a href="{obj.url}" target="_blank">{obj.url}</a>')
+
+    clickable_url.short_description = 'URL'
 
 
