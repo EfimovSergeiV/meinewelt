@@ -67,7 +67,15 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
     '@tresjs/nuxt',
     'nuxt-tiptap-editor',
+    'v-gsap-nuxt',
   ],
+
+  // vgsap: {
+  //   presets: [],
+  //   breakpoint: 400,
+  //   scroller: '',
+  //   composable: true
+  // },
 
   tiptap: {
     prefix: 'Tiptap', //prefix for Tiptap imports, composables not included
