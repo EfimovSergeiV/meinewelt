@@ -1,41 +1,44 @@
+<script setup>
+  import { onMounted } from 'vue'
+  import gsap from 'gsap'
+  import ScrollSmoother from 'gsap/ScrollSmoother'
+
+  onMounted(() => {
+    gsap.registerPlugin(ScrollSmoother)
+
+    ScrollSmoother.create({
+      smooth: 1.5,
+      effects: true
+    })
+  })
+</script>
+
+
 <template>
-  <ClientOnly>
-    <section
-      v-gsap.timeline.pinned="{
-        scrollTrigger: {
-          start: 'top top',
-          end: '+=200%',
-          scrub: true
-        }
-      }"
-      class="relative h-[200vh] flex flex-col items-center justify-center overflow-hidden bg-black text-white"
-    >
-      <div
-        v-gsap.add.to="{ width: '800px', duration: 1, ease: 'power2.out' }"
-        class="Dot bg-indigo-500 w-32 h-32 rounded-full mb-12"
-      />
+  <div class="text-white mx-auto px-4 container">
+    
+    <div class="h-screen flex items-center justify-center">
+      <div class="">
+        <div><p class="text-8xl uppercase font-semibold">scroll me down</p></div>
+      </div>
+    </div>
+    
+    <div class="h-screen flex items-center justify-center">
+      <div class="">
+        <div v-gsap.whenVisible.animateText class="text-8xl uppercase font-semibold"><p>Hallo meine welt</p></div>
+      </div>
+    </div>
+    
+    <div class="h-screen flex items-center justify-center">
+      <article v-gsap.whenVisible.from="{ scale: 0.8, height: 0, padding: 0 }">
+        <!-- <div v-gsap.whenVisible.from="{ y: 100 }"></div> -->
+        <div v-gsap.whenVisible.delay-1000.stagger.from="{ opacity: 0, x: -40 }" class="text-8xl uppercase font-semibold">
+          <p>Hallo meine welt</p>
+          <p>Hallo meine welt</p>
+          <p>Hallo meine welt</p>
+        </div>
+      </article>
+    </div>
 
-      <p
-        v-gsap.add.fromTo="[
-          { opacity: 0, y: 32 },
-          { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
-        ]"
-        v-gsap.add.to="{ opacity: 0, y: -32, duration: 1, ease: 'power2.inOut', delay: 0.5 }"
-        class="text-6xl font-bold mb-4"
-      >
-        New era of
-      </p>
-
-      <p
-        v-gsap.add.withPrevious.fromTo="[
-          { opacity: 0, y: 32 },
-          { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
-        ]"
-        v-gsap.add.to="{ opacity: 0, y: -32, duration: 1, ease: 'power2.inOut', delay: 0.5 }"
-        class="text-6xl font-bold"
-      >
-        animation
-      </p>
-    </section>
-  </ClientOnly>
+  </div>
 </template>

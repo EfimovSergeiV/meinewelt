@@ -12,20 +12,43 @@
   //     // toast.success('App ready to work offline')
   //    alert('App ready to work offline')
   // })
+
+import { onMounted } from 'vue'
+import gsap from 'gsap'
+import ScrollSmoother from 'gsap/ScrollSmoother'
+
+onMounted(() => {
+  gsap.registerPlugin(ScrollSmoother)
+
+  ScrollSmoother.create({
+    smooth: 1.5,
+    effects: true
+  })
+})
+
 </script>
 
 <template>
-  <div class="bg-fixed bg-no-repeat bg-cover bg-center bg-[url('movie-bg.webp')] dark:bg-[url('movie-bg.webp')] min-h-screen">
+  <div>
 
-    <NuxtPwaAssets />
+    <div
+      class="fixed inset-0 -z-10
+            bg-no-repeat bg-cover bg-center
+            bg-[url('movie-bg.webp')]
+            dark:bg-[url('movie-bg.webp')]" />
 
-    <div class="">
-      <div class="min-h-screen flex flex-col justify-between">
+
+    <div id="smooth-wrapper">
+      <div id="smooth-content" class="min-h-screen flex flex-col justify-between">
+
+        <NuxtPwaAssets />
+
         <HeaderSection />
-        <slot />
+          <slot />
         <FooterSection />
+
       </div>
     </div>
-    
+
   </div>
 </template>

@@ -1,7 +1,57 @@
 <script setup>
   // eslint-disable-next-line no-unused-vars, vue/require-prop-types
   const props = defineProps(['skills',])
-
+  
+  
+  // const skills = ref(
+  //   [
+  //     {
+  //         "id": 1,
+  //         "name": "GNU/Linux",
+  //         "skill": true
+  //     },
+  //     {
+  //         "id": 2,
+  //         "name": "Debian",
+  //         "skill": true
+  //     },
+  //     {
+  //         "id": 3,
+  //         "name": "Python",
+  //         "skill": true
+  //     },
+  //     {
+  //         "id": 4,
+  //         "name": "Django",
+  //         "skill": true
+  //     },
+  //     {
+  //         "id": 5,
+  //         "name": "FastAPI",
+  //         "skill": true
+  //     },
+  //     {
+  //         "id": 6,
+  //         "name": "JavaScript",
+  //         "skill": true
+  //     },
+  //     {
+  //         "id": 7,
+  //         "name": "VueJS",
+  //         "skill": true
+  //     },
+  //     {
+  //         "id": 8,
+  //         "name": "NuxtJS",
+  //         "skill": true
+  //     },
+  //     {
+  //         "id": 9,
+  //         "name": "TailwindCSS",
+  //         "skill": true
+  //     }
+  //   ]
+  // )
 
 </script>
 
