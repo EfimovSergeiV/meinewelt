@@ -3,7 +3,14 @@ import ThreeExample from '~/components/ThreeExample.vue';
 import TiptapEditor from '~/components/TiptapEditor.vue';
 
 
-
+  useSeoMeta({
+    title: 'CHT : MEINEWELT.RU',
+    description: 'CHT : MEINEWELT.RU',
+    keywords: 'CHT : MEINEWELT.RU',
+    ogLocale: 'ru_RU',
+    ogTitle: 'CHT : MEINEWELT.RU',
+    ogDescription: 'CHT : MEINEWELT.RU',
+  })
 
 
 </script>

@@ -10,6 +10,14 @@
   import AnimateWatchChart from '@/components/charts/AnimateWatchChart.vue'
 
 
+  useSeoMeta({
+    title: 'EXX : MEINEWELT.RU',
+    description: 'EXX : MEINEWELT.RU',
+    keywords: 'EXX : MEINEWELT.RU',
+    ogLocale: 'ru_RU',
+    ogTitle: 'EXX : MEINEWELT.RU',
+    ogDescription: 'EXX : MEINEWELT.RU',
+  })
 
   const copyToClipboardCMD = (cmd) => {
     navigator.clipboard.writeText(cmd)

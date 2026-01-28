@@ -3,6 +3,15 @@
   import gsap from 'gsap'
   import ScrollSmoother from 'gsap/ScrollSmoother'
 
+  useSeoMeta({
+    title: 'ABT : MEINEWELT.RU',
+    description: 'ABT : MEINEWELT.RU',
+    keywords: 'ABT : MEINEWELT.RU',
+    ogLocale: 'ru_RU',
+    ogTitle: 'ABT : MEINEWELT.RU',
+    ogDescription: 'ABT : MEINEWELT.RU',
+  })
+
   onMounted(() => {
     gsap.registerPlugin(ScrollSmoother)
 
