@@ -7,7 +7,7 @@ export default defineNuxtConfig({
 
   vite: {
     server: {
-      allowedHosts: ['meinewelt.ru'],
+      allowedHosts: ['meinewelt.ru', 'efimovsergei.ru'],
     }
   },
 
