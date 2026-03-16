@@ -37,8 +37,8 @@
     
     <div class="h-screen flex items-center justify-center">
       <div class=" w-1/2">
-        <div v-gsap.whenVisible.animateText class="text-2xl font-semibold text-white ">
-          <p>{{ aboutText }}</p></div>
+        <div v-gsap.whenVisible.animateText class="text-2xl font-semibold text-white "><p>{{ aboutText }}</p></div>
+          <p class="text-sm text-end mt-8">(c) Writed by ChatGPT</p>
       </div>
     </div>
     
