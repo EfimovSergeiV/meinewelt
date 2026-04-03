@@ -120,7 +120,7 @@ onBeforeUnmount(() => {
     <div class="mx-auto">
       <h1 class="text-xl font-bold mb-6">Чат с GPT</h1>
 
-      <div ref="box" class="bg-zinc-900 rounded-t-2xl p-4 md:h-[60vh] overflow-y-auto  border border-zinc-800">
+      <div ref="box" class="bg-zinc-900/90 rounded-t-2xl p-4 md:h-[60vh] overflow-y-auto  border border-zinc-800">
         
         <div
           v-for="(msg, i) in messages"
@@ -140,7 +140,7 @@ onBeforeUnmount(() => {
           v-model="input"
           rows="3"
           placeholder="Написать агенту..."
-          class="flex-1 rounded-b-xl bg-zinc-800 border border-zinc-700 px-4 py-3 outline-none"
+          class="flex-1 rounded-b-xl bg-zinc-800/95 border border-zinc-700 px-4 py-3 outline-none"
           @keydown.enter.exact.prevent="send"
         />
 
