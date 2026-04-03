@@ -1,6 +1,6 @@
 <script setup>
-import ThreeExample from '~/components/ThreeExample.vue';
-import TiptapEditor from '~/components/TiptapEditor.vue';
+// import ThreeExample from '~/components/ThreeExample.vue';
+// import TiptapEditor from '~/components/TiptapEditor.vue';
 
 
   useSeoMeta({
@@ -20,15 +20,15 @@ import TiptapEditor from '~/components/TiptapEditor.vue';
   
   
   <div class="container mx-auto px-4 py-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
       <SocketChat />
-      <ThreeExample />
+      <!-- <ThreeExample /> -->
     </div>
 
 
-    <div class="">
+    <!-- <div class="">
       <TiptapEditor />
-    </div>
+    </div> -->
 
   
   

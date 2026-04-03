@@ -43,7 +43,7 @@
 
   // загрузка модели
   const gltfLoader = new GLTFLoader()
-  gltfLoader.load('/PotPlant.glb', (gltf) => {
+  gltfLoader.load('/ural-4320.glb', (gltf) => {
     model = gltf.scene
 
     // нормализация размера
@@ -51,7 +51,7 @@
     const size = new Vector3()
     box.getSize(size)
     const maxDim = Math.max(size.x, size.y, size.z)
-    const scale = 2 / maxDim
+    const scale = 3 / maxDim
     model.scale.setScalar(scale)
 
     // центрирование

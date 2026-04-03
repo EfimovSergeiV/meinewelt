@@ -125,6 +125,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       baseURL: cfg.BASE_URL,
+      SOCKET: cfg.SOCKET,
     },
   },
 })
