@@ -43,7 +43,7 @@
 
   // загрузка модели
   const gltfLoader = new GLTFLoader()
-  gltfLoader.load('/ural-4320.glb', (gltf) => {
+  gltfLoader.load('/PotPlant.glb', (gltf) => {
     model = gltf.scene
 
     // нормализация размера

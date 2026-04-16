@@ -35,6 +35,25 @@
 }
 
 
+.profile-img-border {
+  clip-path: polygon(
+      99.81% 45.642%,
+      78.679% 90.958%,
+      28.869% 95.315%,
+      0.19% 54.358%,
+      21.321% 9.042%,
+      71.131% 4.685%
+    );
+  padding: 10px;
+  background: linear-gradient(
+    135deg,
+    #3b82f6 0%,
+    #6366f1 40%,
+    #a855f7 70%,
+    #ec4899 100%
+  );
+}
+
 .profile-img {
   clip-path: polygon(
       99.81% 45.642%,

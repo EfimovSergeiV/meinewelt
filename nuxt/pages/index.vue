@@ -111,7 +111,9 @@
     <div class="text-gray-100 dark:text-gray-100">
 
       <div class="flex items-center justify-center">
-        <img src="/profile-img.jpg" class="profile-img h-48 text-blue-600" >
+        <div class="profile-img-border">
+          <img src="/profile-img.jpg" class="profile-img h-48 text-blue-600" >          
+        </div>
       </div>
 
       <div class="grid grid-cols-1 gap-2">

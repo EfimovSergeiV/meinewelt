@@ -109,13 +109,16 @@ async def websocket_endpoint(websocket: WebSocket):
         await websocket.send_json(response_data)
 
 
+"""
+    TEST LLM AGENT WITH FASTAPI AND WEBSOCKETS
+"""
 
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 import lmstudio as lms
 import re, random, json, asyncio
 from pathlib import Path
 
-SERVER_API_HOST = "192.168.60.135:1234"
+SERVER_API_HOST = "192.168.1.123:1234"
 lms.configure_default_client(SERVER_API_HOST)
 model = lms.llm("openai/gpt-oss-20b")
 
@@ -123,6 +126,8 @@ REPLACEMENTS_FILE = Path("replacements.json")
 
 
 SYSTEM_PROMPT = ("""
+
+    EXAMPLE PROMT:
 
 """)
 
@@ -204,16 +209,16 @@ def naturalize_бля(text: str) -> str:
     #     else:
     #         result.append(ch)
 
-    text = "".join(result)
+    # text = "".join(result)
 
-    text = re.sub(
-        r"\b(ну|короче|слушай|вообще|просто)\b",
-        lambda m: m.group(1) + (" бля" if random.random() < 0.4 else ""),
-        text,
-        flags=re.IGNORECASE
-    )
+    # text = re.sub(
+    #     r"\b(ну|короче|слушай|вообще|просто)\b",
+    #     lambda m: m.group(1) + (" бля" if random.random() < 0.4 else ""),
+    #     text,
+    #     flags=re.IGNORECASE
+    # )
 
-    text = re.sub(r"\s{2,}", " ", text)
+    # text = re.sub(r"\s{2,}", " ", text)
     return text
 
 
