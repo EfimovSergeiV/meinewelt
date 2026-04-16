@@ -13,7 +13,7 @@
       
       <div class="">
         <nuxt-link :to="{ name: 'index' }">
-          <img src="/mw-logo.webp" class="h-16">          
+          <img src="/mw-logo.webp" class="h-10 md:h-16">          
         </nuxt-link>
       </div>
 

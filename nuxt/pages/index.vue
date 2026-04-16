@@ -118,10 +118,10 @@
 
       <div class="grid grid-cols-1 gap-2">
         <div class="flex items-center justify-center">
-          <p class="text-2xl font-semibold">S2NULLNULLACHTUNDFÜNFZIG</p>
+          <p class="text-xl md:text-2xl font-semibold">S2NULLNULLACHTUNDFÜNFZIG</p>
         </div>
         <div class="flex items-center justify-center">
-          <p class="text-2xl font-semibold">Сергей Ефимов</p>
+          <p class="text-xl md:text-2xl font-semibold">Сергей Ефимов</p>
         </div>
       </div>
 

@@ -70,7 +70,7 @@
 
   // рендерер
   function updateRenderer() {
-    renderer.setSize(400, 400)
+    renderer.setSize(300, 300)
     renderer.render(scene, camera)
     dirLight.castShadow = true
     renderer.shadowMap.enabled = true
@@ -123,13 +123,13 @@
 
     <div class="space-x-2">
       <button 
-        class="px-4 py-2 w-44 bg-blue-500 text-white rounded" 
+        class="px-4 py-2 w-44 bg-blue-500/50 text-white rounded" 
         @click="autoRotate = true"
       >
         Автовращение
       </button>
       <button 
-        class="px-4 py-2 w-44 bg-green-500 text-white rounded" 
+        class="px-4 py-2 w-44 bg-green-500/50 text-white rounded" 
         @click="rotateBy60"
       >
         Повернуть

@@ -32,6 +32,7 @@
     <div class="h-screen flex items-center justify-center">
       <div class="">
         <div><p class="text-8xl uppercase font-semibold">About me</p></div>
+          <ThreeExample />
       </div>
     </div>
     
@@ -39,7 +40,7 @@
       <div class=" w-1/2">
         <div v-gsap.whenVisible.animateText class="text-2xl font-semibold text-white "><p>{{ aboutText }}</p></div>
           <p class="text-sm text-end mt-8">(c) Writed by ChatGPT</p>
-          <ThreeExample />
+
         </div>
 
     </div>
@@ -48,9 +49,9 @@
       <article v-gsap.whenVisible.from="{ scale: 0.8, height: 0, padding: 0 }">
         <!-- <div v-gsap.whenVisible.from="{ y: 100 }"></div> -->
         <div v-gsap.whenVisible.delay-1000.stagger.from="{ opacity: 0, x: -40 }" class="text-2xl text-center font-semibold">
-          <p class="text-center">mail@efimovsergei.ru</p>
-          <p>meinewelt.ru</p>
-          <p>efimovsergei.ru</p>
+          <p class="text-center md:text-6xl">mail@efimovsergei.ru</p>
+          <p class="text-center md:text-5xl py-6">meinewelt.ru</p>
+          <p class="text-center md:text-5xl">efimovsergei.ru</p>
         </div>
       </article>
     </div>
